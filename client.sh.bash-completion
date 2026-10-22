@@ -1,0 +1,777 @@
+# client.sh completion                               -*- shell-script -*-
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !
+# ! Note:
+# !
+# ! THIS SCRIPT HAS BEEN AUTOMATICALLY GENERATED USING
+# ! openapi-generator (https://openapi-generator.tech)
+# ! FROM OPENAPI SPECIFICATION IN JSON.
+# !
+# ! Generator version: 7.9.0
+# !
+# !
+# ! System wide installation:
+# !
+# ! $ sudo cp client.sh.bash-completion /etc/bash-completion.d/client.sh
+# !
+# !
+# ! User home installation (add this line to .bash_profile):
+# !
+# ! [ -r ~/client.sh.bash-completion ] && source ~/client.sh.bash-completion
+# !
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+declare -A mime_type_abbreviations
+# text/*
+mime_type_abbreviations["text"]="text/plain"
+mime_type_abbreviations["html"]="text/html"
+mime_type_abbreviations["md"]="text/x-markdown"
+mime_type_abbreviations["csv"]="text/csv"
+mime_type_abbreviations["css"]="text/css"
+mime_type_abbreviations["rtf"]="text/rtf"
+# application/*
+mime_type_abbreviations["json"]="application/json"
+mime_type_abbreviations["xml"]="application/xml"
+mime_type_abbreviations["yaml"]="application/yaml"
+mime_type_abbreviations["js"]="application/javascript"
+mime_type_abbreviations["bin"]="application/octet-stream"
+mime_type_abbreviations["rdf"]="application/rdf+xml"
+# image/*
+mime_type_abbreviations["jpg"]="image/jpeg"
+mime_type_abbreviations["png"]="image/png"
+mime_type_abbreviations["gif"]="image/gif"
+mime_type_abbreviations["bmp"]="image/bmp"
+mime_type_abbreviations["tiff"]="image/tiff"
+
+
+#
+# Check if this is OSX, if so defined custom init_completion
+#
+if [[ `uname` =~ "Darwin" ]]; then
+    __osx_init_completion()
+    {
+        COMPREPLY=()
+        _get_comp_words_by_ref cur prev words cword
+    }
+fi
+
+_client.sh()
+{
+    local cur
+    local prev
+    local words
+    local cword
+
+    # The reference of currently selected REST operation
+    local operation=""
+
+    # The list of available operation in the REST service
+    # It's modelled as an associative array for efficient key lookup
+    declare -A operations
+    operations["createCanvas_0"]=1
+    operations["deleteCanvas_0"]=1
+    operations["getAllCanvases_0"]=1
+    operations["getCanvas_0"]=1
+    operations["updateCanvas_0"]=1
+    operations["addAiAnswersKnowledgeDocument_0"]=1
+    operations["checkCompositionAccess_0"]=1
+    operations["createCompositionContentItem_0"]=1
+    operations["createCompositionDatabaseRecord_0"]=1
+    operations["createComposition_0"]=1
+    operations["deleteCompositionContentItem_0"]=1
+    operations["deleteCompositionDataSource_0"]=1
+    operations["deleteCompositionDatabaseRecord_0"]=1
+    operations["deleteComposition_0"]=1
+    operations["describeCompositionEntries_0"]=1
+    operations["duplicateComposition_0"]=1
+    operations["getAiAnswersKnowledge_0"]=1
+    operations["getAllCompositions_0"]=1
+    operations["getCompositionById_0"]=1
+    operations["getCompositionContentSchema_0"]=1
+    operations["getCompositionContent_0"]=1
+    operations["getCompositionDataSource_0"]=1
+    operations["getCompositionDatabaseRecord_0"]=1
+    operations["getCompositionDatabaseRecords_0"]=1
+    operations["getCompositionDesignSchema_0"]=1
+    operations["getCompositionDesign_0"]=1
+    operations["getCompositionEmbedSchema_0"]=1
+    operations["getCompositionEmbedSettings_0"]=1
+    operations["getCompositionPreview_0"]=1
+    operations["getCompositionVersions_0"]=1
+    operations["getCompositionsBatch_0"]=1
+    operations["patchCompositionContentItem_0"]=1
+    operations["readCompositionEntries_0"]=1
+    operations["removeAiAnswersKnowledgeDocument_0"]=1
+    operations["setCompositionDataSource_0"]=1
+    operations["setDynamicContent_0"]=1
+    operations["updateCompositionDatabaseRecord_0"]=1
+    operations["updateCompositionStatus_0"]=1
+    operations["updateComposition_0"]=1
+    operations["validateCompositionContent_0"]=1
+    operations["getUserCreditBalance_0"]=1
+    operations["getUserCreditTransactions_0"]=1
+    operations["getManagedUserEntitlements_0"]=1
+    operations["getPartnerEntitlements_0"]=1
+    operations["getInvoicesByPartnerId_0"]=1
+    operations["copyPresetForManagedUser_0"]=1
+    operations["createCompositionFromPreset_0"]=1
+    operations["createManagedUserEditorSession_0"]=1
+    operations["createManagedUser_0"]=1
+    operations["deleteManagedUser_0"]=1
+    operations["getAllManagedUsers_0"]=1
+    operations["getManagedUserById_0"]=1
+    operations["getManagedUserDesignDefaults_0"]=1
+    operations["getManagedUserLimits_0"]=1
+    operations["getManagedUserStorageUsage_0"]=1
+    operations["getManagedUserUsage_0"]=1
+    operations["getManagedUsersByManagerId_0"]=1
+    operations["revokeManagedUserEditorSession_0"]=1
+    operations["revokeManagedUserEditorSessions_0"]=1
+    operations["setManagedUserDesignDefaults_0"]=1
+    operations["setManagedUserLimits_0"]=1
+    operations["updateManagedUser_0"]=1
+    operations["operationsIdGet_0"]=1
+    operations["addAiAnswersKnowledgeDocument"]=1
+    operations["addPersonalWorkspaceDomain"]=1
+    operations["callPublicCompositionAdapter"]=1
+    operations["checkCompositionAccess"]=1
+    operations["copyPresetForManagedUser"]=1
+    operations["createCanvas"]=1
+    operations["createComposition"]=1
+    operations["createCompositionContentItem"]=1
+    operations["createCompositionDatabaseRecord"]=1
+    operations["createCompositionFromPreset"]=1
+    operations["createCompositionFromWidget"]=1
+    operations["createManagedUser"]=1
+    operations["createManagedUserEditorSession"]=1
+    operations["createPartnerExtraCreditsInvoice"]=1
+    operations["createPublicCompositionEntry"]=1
+    operations["createUserApiKey"]=1
+    operations["createWidget"]=1
+    operations["deleteCanvas"]=1
+    operations["deleteComposition"]=1
+    operations["deleteCompositionContentItem"]=1
+    operations["deleteCompositionDataSource"]=1
+    operations["deleteCompositionDatabaseRecord"]=1
+    operations["deleteCompositionEntryItems"]=1
+    operations["deleteManagedUser"]=1
+    operations["deletePersonalWorkspaceDomain"]=1
+    operations["deleteUserApiKey"]=1
+    operations["describeCompositionEntries"]=1
+    operations["duplicateComposition"]=1
+    operations["exportCompositionEntryItems"]=1
+    operations["getAiAnswersKnowledge"]=1
+    operations["getAllCanvases"]=1
+    operations["getAllCompositions"]=1
+    operations["getAllManagedUsers"]=1
+    operations["getCanvas"]=1
+    operations["getCompositionById"]=1
+    operations["getCompositionContent"]=1
+    operations["getCompositionContentSchema"]=1
+    operations["getCompositionDataSource"]=1
+    operations["getCompositionDatabaseRecord"]=1
+    operations["getCompositionDatabaseRecords"]=1
+    operations["getCompositionDesign"]=1
+    operations["getCompositionDesignSchema"]=1
+    operations["getCompositionEmbedSchema"]=1
+    operations["getCompositionEmbedSettings"]=1
+    operations["getCompositionPreview"]=1
+    operations["getCompositionVersions"]=1
+    operations["getCompositionsBatch"]=1
+    operations["getInvoicesByPartnerId"]=1
+    operations["getManagedUserById"]=1
+    operations["getManagedUserDesignDefaults"]=1
+    operations["getManagedUserEntitlements"]=1
+    operations["getManagedUserLimits"]=1
+    operations["getManagedUserStorageUsage"]=1
+    operations["getManagedUserUsage"]=1
+    operations["getManagedUsersByManagerId"]=1
+    operations["getMyPartners"]=1
+    operations["getPartnerAdapterConnections"]=1
+    operations["getPartnerAnalyticsByManagedUser"]=1
+    operations["getPartnerAnalyticsSummary"]=1
+    operations["getPartnerAnalyticsTimeline"]=1
+    operations["getPartnerAnalyticsTopWidgets"]=1
+    operations["getPartnerBillingOverview"]=1
+    operations["getPartnerContract"]=1
+    operations["getPartnerCreditBalance"]=1
+    operations["getPartnerCreditTransactions"]=1
+    operations["getPartnerDataDatabase"]=1
+    operations["getPartnerDesignDefaults"]=1
+    operations["getPartnerEntitlements"]=1
+    operations["getPartnerEntryContextSigning"]=1
+    operations["getPartnerNotificationSettings"]=1
+    operations["getPartnerStorageDestination"]=1
+    operations["getPartnerStorageUsage"]=1
+    operations["getPersonalWorkspaceDomains"]=1
+    operations["getPublicCompositionEmbed"]=1
+    operations["getPublicCompositionIframe"]=1
+    operations["getUserAdapterConnections"]=1
+    operations["getUserApiKeyUsageLogs"]=1
+    operations["getUserApiKeys"]=1
+    operations["getUserCreditBalance"]=1
+    operations["getUserCreditTransactions"]=1
+    operations["getWidgets"]=1
+    operations["getWidgetsBatch"]=1
+    operations["listCompositionEntryItems"]=1
+    operations["listManagedUserEntries"]=1
+    operations["listPartnerNotificationDeliveries"]=1
+    operations["listPartnerNotifications"]=1
+    operations["listPartnerPresets"]=1
+    operations["operationsIdGet"]=1
+    operations["patchCompositionContentItem"]=1
+    operations["postPublicCompositionEmbedStatus"]=1
+    operations["readCompositionEntries"]=1
+    operations["removeAiAnswersKnowledgeDocument"]=1
+    operations["removePartnerAdapterConnection"]=1
+    operations["removePartnerDataDatabase"]=1
+    operations["removePartnerPreset"]=1
+    operations["removePartnerStorageDestination"]=1
+    operations["removeUserAdapterConnection"]=1
+    operations["replayPartnerNotificationDelivery"]=1
+    operations["revokeManagedUserEditorSession"]=1
+    operations["revokeManagedUserEditorSessions"]=1
+    operations["rotatePartnerEntryContextSecret"]=1
+    operations["rotatePartnerWebhookSecret"]=1
+    operations["sendPartnerNotificationTestEvent"]=1
+    operations["setCompositionDataSource"]=1
+    operations["setDynamicContent"]=1
+    operations["setManagedUserDesignDefaults"]=1
+    operations["setManagedUserLimits"]=1
+    operations["setPartnerAdapterConnection"]=1
+    operations["setPartnerDataDatabase"]=1
+    operations["setPartnerDesignDefaults"]=1
+    operations["setPartnerPreset"]=1
+    operations["setPartnerStorageDestination"]=1
+    operations["setUserAdapterConnection"]=1
+    operations["updateCanvas"]=1
+    operations["updateComposition"]=1
+    operations["updateCompositionDatabaseRecord"]=1
+    operations["updateCompositionStatus"]=1
+    operations["updateManagedUser"]=1
+    operations["updatePartnerEntryContextSigning"]=1
+    operations["updatePartnerNotificationSettings"]=1
+    operations["updatePersonalWorkspaceDomain"]=1
+    operations["updateUserApiKey"]=1
+    operations["uploadPublicCompositionAdapterFile"]=1
+    operations["uploadsGet"]=1
+    operations["uploadsIdDelete"]=1
+    operations["uploadsIdGet"]=1
+    operations["uploadsLimitsGet"]=1
+    operations["uploadsPost"]=1
+    operations["validateCompositionContent"]=1
+    operations["validateToken"]=1
+    operations["verifyPartnerDataDatabase"]=1
+    operations["verifyPartnerStorageDestination"]=1
+    operations["createPartnerExtraCreditsInvoice_0"]=1
+    operations["getMyPartners_0"]=1
+    operations["getPartnerAdapterConnections_0"]=1
+    operations["getPartnerAnalyticsByManagedUser_0"]=1
+    operations["getPartnerAnalyticsSummary_0"]=1
+    operations["getPartnerAnalyticsTimeline_0"]=1
+    operations["getPartnerAnalyticsTopWidgets_0"]=1
+    operations["getPartnerBillingOverview_0"]=1
+    operations["getPartnerContract_0"]=1
+    operations["getPartnerCreditBalance_0"]=1
+    operations["getPartnerCreditTransactions_0"]=1
+    operations["getPartnerDataDatabase_0"]=1
+    operations["getPartnerDesignDefaults_0"]=1
+    operations["getPartnerEntryContextSigning_0"]=1
+    operations["getPartnerNotificationSettings_0"]=1
+    operations["getPartnerStorageDestination_0"]=1
+    operations["getPartnerStorageUsage_0"]=1
+    operations["listPartnerNotificationDeliveries_0"]=1
+    operations["listPartnerNotifications_0"]=1
+    operations["listPartnerPresets_0"]=1
+    operations["removePartnerAdapterConnection_0"]=1
+    operations["removePartnerDataDatabase_0"]=1
+    operations["removePartnerPreset_0"]=1
+    operations["removePartnerStorageDestination_0"]=1
+    operations["replayPartnerNotificationDelivery_0"]=1
+    operations["rotatePartnerEntryContextSecret_0"]=1
+    operations["rotatePartnerWebhookSecret_0"]=1
+    operations["sendPartnerNotificationTestEvent_0"]=1
+    operations["setPartnerAdapterConnection_0"]=1
+    operations["setPartnerDataDatabase_0"]=1
+    operations["setPartnerDesignDefaults_0"]=1
+    operations["setPartnerPreset_0"]=1
+    operations["setPartnerStorageDestination_0"]=1
+    operations["updatePartnerEntryContextSigning_0"]=1
+    operations["updatePartnerNotificationSettings_0"]=1
+    operations["verifyPartnerDataDatabase_0"]=1
+    operations["verifyPartnerStorageDestination_0"]=1
+    operations["callPublicCompositionAdapter_0"]=1
+    operations["createPublicCompositionEntry_0"]=1
+    operations["getPublicCompositionEmbed_0"]=1
+    operations["getPublicCompositionIframe_0"]=1
+    operations["postPublicCompositionEmbedStatus_0"]=1
+    operations["uploadPublicCompositionAdapterFile_0"]=1
+    operations["validateToken_0"]=1
+    operations["uploadsGet_0"]=1
+    operations["uploadsIdDelete_0"]=1
+    operations["uploadsIdGet_0"]=1
+    operations["uploadsLimitsGet_0"]=1
+    operations["uploadsPost_0"]=1
+    operations["addPersonalWorkspaceDomain_0"]=1
+    operations["createUserApiKey_0"]=1
+    operations["deletePersonalWorkspaceDomain_0"]=1
+    operations["deleteUserApiKey_0"]=1
+    operations["getPersonalWorkspaceDomains_0"]=1
+    operations["getUserAdapterConnections_0"]=1
+    operations["getUserApiKeyUsageLogs_0"]=1
+    operations["getUserApiKeys_0"]=1
+    operations["removeUserAdapterConnection_0"]=1
+    operations["setUserAdapterConnection_0"]=1
+    operations["updatePersonalWorkspaceDomain_0"]=1
+    operations["updateUserApiKey_0"]=1
+    operations["createCompositionFromWidget_0"]=1
+    operations["createWidget_0"]=1
+    operations["getWidgetsBatch_0"]=1
+    operations["getWidgets_0"]=1
+
+    # An associative array of operations to their parameters
+    # Only include path, query and header parameters
+    declare -A operation_parameters
+    operation_parameters["createCanvas_0"]=""
+    operation_parameters["deleteCanvas_0"]="id= "
+    operation_parameters["getAllCanvases_0"]="page= size= sort= createdAfter= createdBefore= updatedAfter= updatedBefore= managedUserId= managedUserExternalId= "
+    operation_parameters["getCanvas_0"]="id= "
+    operation_parameters["updateCanvas_0"]="id= "
+    operation_parameters["addAiAnswersKnowledgeDocument_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["checkCompositionAccess_0"]="id= "
+    operation_parameters["createCompositionContentItem_0"]="id= list= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["createCompositionDatabaseRecord_0"]="id= table= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["createComposition_0"]="Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["deleteCompositionContentItem_0"]="id= list= itemId= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["deleteCompositionDataSource_0"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["deleteCompositionDatabaseRecord_0"]="id= table= recordId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["deleteComposition_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["describeCompositionEntries_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["duplicateComposition_0"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getAiAnswersKnowledge_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getAllCompositions_0"]="page= size= sort= widgetId= workspace= projectFolder= status= managedUserId= managedUserExternalId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionById_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionContentSchema_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionContent_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionDataSource_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionDatabaseRecord_0"]="id= table= recordId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionDatabaseRecords_0"]="id= table= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionDesignSchema_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionDesign_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionEmbedSchema_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionEmbedSettings_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionPreview_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionVersions_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionsBatch_0"]=""
+    operation_parameters["patchCompositionContentItem_0"]="id= list= itemId= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["readCompositionEntries_0"]="id= table= groupBy= rows= aggregate= column= since= until= context= filter= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["removeAiAnswersKnowledgeDocument_0"]="id= documentId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["setCompositionDataSource_0"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["setDynamicContent_0"]="id= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["updateCompositionDatabaseRecord_0"]="id= table= recordId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["updateCompositionStatus_0"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["updateComposition_0"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["validateCompositionContent_0"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getUserCreditBalance_0"]="userId= "
+    operation_parameters["getUserCreditTransactions_0"]="userId= transactionType= limit= offset= "
+    operation_parameters["getManagedUserEntitlements_0"]="managedUserId= includeExpired= feature= source= "
+    operation_parameters["getPartnerEntitlements_0"]="partnerId= includeExpired= feature= source= "
+    operation_parameters["getInvoicesByPartnerId_0"]="partnerId= status= limit= offset= "
+    operation_parameters["copyPresetForManagedUser_0"]="id= key= Idempotency-Key: "
+    operation_parameters["createCompositionFromPreset_0"]="id= key= Idempotency-Key: "
+    operation_parameters["createManagedUserEditorSession_0"]="id= "
+    operation_parameters["createManagedUser_0"]="Idempotency-Key: "
+    operation_parameters["deleteManagedUser_0"]="id= "
+    operation_parameters["getAllManagedUsers_0"]="page= size= sort= "
+    operation_parameters["getManagedUserById_0"]="id= "
+    operation_parameters["getManagedUserDesignDefaults_0"]="id= "
+    operation_parameters["getManagedUserLimits_0"]="id= "
+    operation_parameters["getManagedUserStorageUsage_0"]="id= "
+    operation_parameters["getManagedUserUsage_0"]="id= startDate= endDate= "
+    operation_parameters["getManagedUsersByManagerId_0"]="managerId= page= size= sort= "
+    operation_parameters["revokeManagedUserEditorSession_0"]="id= sessionId= "
+    operation_parameters["revokeManagedUserEditorSessions_0"]="id= "
+    operation_parameters["setManagedUserDesignDefaults_0"]="id= "
+    operation_parameters["setManagedUserLimits_0"]="id= "
+    operation_parameters["updateManagedUser_0"]="id= Idempotency-Key: "
+    operation_parameters["operationsIdGet_0"]="id= "
+    operation_parameters["addAiAnswersKnowledgeDocument"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["addPersonalWorkspaceDomain"]="id= "
+    operation_parameters["callPublicCompositionAdapter"]="compositionId= adapterId= operation= "
+    operation_parameters["checkCompositionAccess"]="id= "
+    operation_parameters["copyPresetForManagedUser"]="id= key= Idempotency-Key: "
+    operation_parameters["createCanvas"]=""
+    operation_parameters["createComposition"]="Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["createCompositionContentItem"]="id= list= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["createCompositionDatabaseRecord"]="id= table= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["createCompositionFromPreset"]="id= key= Idempotency-Key: "
+    operation_parameters["createCompositionFromWidget"]="id= Idempotency-Key: "
+    operation_parameters["createManagedUser"]="Idempotency-Key: "
+    operation_parameters["createManagedUserEditorSession"]="id= "
+    operation_parameters["createPartnerExtraCreditsInvoice"]="partnerId= Idempotency-Key: "
+    operation_parameters["createPublicCompositionEntry"]="compositionId= table= X-Widgetic-Write-Token: "
+    operation_parameters["createUserApiKey"]="id= Idempotency-Key: "
+    operation_parameters["createWidget"]="Idempotency-Key: "
+    operation_parameters["deleteCanvas"]="id= "
+    operation_parameters["deleteComposition"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["deleteCompositionContentItem"]="id= list= itemId= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["deleteCompositionDataSource"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["deleteCompositionDatabaseRecord"]="id= table= recordId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["deleteCompositionEntryItems"]="id= table= ids= context= filter= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["deleteManagedUser"]="id= "
+    operation_parameters["deletePersonalWorkspaceDomain"]="id= domainId= "
+    operation_parameters["deleteUserApiKey"]="id= keyId= "
+    operation_parameters["describeCompositionEntries"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["duplicateComposition"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["exportCompositionEntryItems"]="id= table= format= order= since= until= context= filter= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getAiAnswersKnowledge"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getAllCanvases"]="page= size= sort= createdAfter= createdBefore= updatedAfter= updatedBefore= managedUserId= managedUserExternalId= "
+    operation_parameters["getAllCompositions"]="page= size= sort= widgetId= workspace= projectFolder= status= managedUserId= managedUserExternalId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getAllManagedUsers"]="page= size= sort= "
+    operation_parameters["getCanvas"]="id= "
+    operation_parameters["getCompositionById"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionContent"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionContentSchema"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionDataSource"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionDatabaseRecord"]="id= table= recordId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionDatabaseRecords"]="id= table= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionDesign"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionDesignSchema"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionEmbedSchema"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionEmbedSettings"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionPreview"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionVersions"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getCompositionsBatch"]=""
+    operation_parameters["getInvoicesByPartnerId"]="partnerId= status= limit= offset= "
+    operation_parameters["getManagedUserById"]="id= "
+    operation_parameters["getManagedUserDesignDefaults"]="id= "
+    operation_parameters["getManagedUserEntitlements"]="managedUserId= includeExpired= feature= source= "
+    operation_parameters["getManagedUserLimits"]="id= "
+    operation_parameters["getManagedUserStorageUsage"]="id= "
+    operation_parameters["getManagedUserUsage"]="id= startDate= endDate= "
+    operation_parameters["getManagedUsersByManagerId"]="managerId= page= size= sort= "
+    operation_parameters["getMyPartners"]=""
+    operation_parameters["getPartnerAdapterConnections"]="partnerId= "
+    operation_parameters["getPartnerAnalyticsByManagedUser"]="partnerId= startDate= endDate= limit= offset= "
+    operation_parameters["getPartnerAnalyticsSummary"]="partnerId= startDate= endDate= managedUserId= managedUserExternalId= "
+    operation_parameters["getPartnerAnalyticsTimeline"]="partnerId= startDate= endDate= managedUserId= managedUserExternalId= "
+    operation_parameters["getPartnerAnalyticsTopWidgets"]="partnerId= startDate= endDate= managedUserId= managedUserExternalId= limit= "
+    operation_parameters["getPartnerBillingOverview"]="partnerId= "
+    operation_parameters["getPartnerContract"]="partnerId= "
+    operation_parameters["getPartnerCreditBalance"]="partnerId= "
+    operation_parameters["getPartnerCreditTransactions"]="partnerId= limit= offset= type= "
+    operation_parameters["getPartnerDataDatabase"]="partnerId= "
+    operation_parameters["getPartnerDesignDefaults"]="partnerId= "
+    operation_parameters["getPartnerEntitlements"]="partnerId= includeExpired= feature= source= "
+    operation_parameters["getPartnerEntryContextSigning"]="partnerId= "
+    operation_parameters["getPartnerNotificationSettings"]="partnerId= "
+    operation_parameters["getPartnerStorageDestination"]="partnerId= "
+    operation_parameters["getPartnerStorageUsage"]="partnerId= limit= offset= "
+    operation_parameters["getPersonalWorkspaceDomains"]="id= "
+    operation_parameters["getPublicCompositionEmbed"]="compositionId= "
+    operation_parameters["getPublicCompositionIframe"]="compositionId= "
+    operation_parameters["getUserAdapterConnections"]="userId= "
+    operation_parameters["getUserApiKeyUsageLogs"]="id= keyId= limit= "
+    operation_parameters["getUserApiKeys"]="id= "
+    operation_parameters["getUserCreditBalance"]="userId= "
+    operation_parameters["getUserCreditTransactions"]="userId= transactionType= limit= offset= "
+    operation_parameters["getWidgets"]="page= size= canvasId= managedUserId= managedUserExternalId= "
+    operation_parameters["getWidgetsBatch"]=""
+    operation_parameters["listCompositionEntryItems"]="id= table= limit= order= since= until= cursor= context= filter= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["listManagedUserEntries"]="id= compositionId= table= limit= order= since= until= cursor= context= filter= "
+    operation_parameters["listPartnerNotificationDeliveries"]="partnerId= limit= "
+    operation_parameters["listPartnerNotifications"]="partnerId= limit= before= "
+    operation_parameters["listPartnerPresets"]="partnerId= "
+    operation_parameters["operationsIdGet"]="id= "
+    operation_parameters["patchCompositionContentItem"]="id= list= itemId= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["postPublicCompositionEmbedStatus"]=""
+    operation_parameters["readCompositionEntries"]="id= table= groupBy= rows= aggregate= column= since= until= context= filter= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["removeAiAnswersKnowledgeDocument"]="id= documentId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["removePartnerAdapterConnection"]="partnerId= adapterId= credentialKey= "
+    operation_parameters["removePartnerDataDatabase"]="partnerId= "
+    operation_parameters["removePartnerPreset"]="partnerId= key= "
+    operation_parameters["removePartnerStorageDestination"]="partnerId= "
+    operation_parameters["removeUserAdapterConnection"]="userId= adapterId= credentialKey= "
+    operation_parameters["replayPartnerNotificationDelivery"]="partnerId= deliveryId= Idempotency-Key: "
+    operation_parameters["revokeManagedUserEditorSession"]="id= sessionId= "
+    operation_parameters["revokeManagedUserEditorSessions"]="id= "
+    operation_parameters["rotatePartnerEntryContextSecret"]="partnerId= Idempotency-Key: "
+    operation_parameters["rotatePartnerWebhookSecret"]="partnerId= Idempotency-Key: "
+    operation_parameters["sendPartnerNotificationTestEvent"]="partnerId= Idempotency-Key: "
+    operation_parameters["setCompositionDataSource"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["setDynamicContent"]="id= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["setManagedUserDesignDefaults"]="id= "
+    operation_parameters["setManagedUserLimits"]="id= "
+    operation_parameters["setPartnerAdapterConnection"]="partnerId= adapterId= credentialKey= "
+    operation_parameters["setPartnerDataDatabase"]="partnerId= "
+    operation_parameters["setPartnerDesignDefaults"]="partnerId= "
+    operation_parameters["setPartnerPreset"]="partnerId= key= "
+    operation_parameters["setPartnerStorageDestination"]="partnerId= "
+    operation_parameters["setUserAdapterConnection"]="userId= adapterId= credentialKey= "
+    operation_parameters["updateCanvas"]="id= "
+    operation_parameters["updateComposition"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["updateCompositionDatabaseRecord"]="id= table= recordId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["updateCompositionStatus"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["updateManagedUser"]="id= Idempotency-Key: "
+    operation_parameters["updatePartnerEntryContextSigning"]="partnerId= Idempotency-Key: "
+    operation_parameters["updatePartnerNotificationSettings"]="partnerId= Idempotency-Key: "
+    operation_parameters["updatePersonalWorkspaceDomain"]="id= domainId= "
+    operation_parameters["updateUserApiKey"]="id= keyId= "
+    operation_parameters["uploadPublicCompositionAdapterFile"]="compositionId= ticket= "
+    operation_parameters["uploadsGet"]="limit= managedUserId= managedUserExternalId= "
+    operation_parameters["uploadsIdDelete"]="id= "
+    operation_parameters["uploadsIdGet"]="id= "
+    operation_parameters["uploadsLimitsGet"]=""
+    operation_parameters["uploadsPost"]=""
+    operation_parameters["validateCompositionContent"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["validateToken"]=""
+    operation_parameters["verifyPartnerDataDatabase"]="partnerId= "
+    operation_parameters["verifyPartnerStorageDestination"]="partnerId= "
+    operation_parameters["createPartnerExtraCreditsInvoice_0"]="partnerId= Idempotency-Key: "
+    operation_parameters["getMyPartners_0"]=""
+    operation_parameters["getPartnerAdapterConnections_0"]="partnerId= "
+    operation_parameters["getPartnerAnalyticsByManagedUser_0"]="partnerId= startDate= endDate= limit= offset= "
+    operation_parameters["getPartnerAnalyticsSummary_0"]="partnerId= startDate= endDate= managedUserId= managedUserExternalId= "
+    operation_parameters["getPartnerAnalyticsTimeline_0"]="partnerId= startDate= endDate= managedUserId= managedUserExternalId= "
+    operation_parameters["getPartnerAnalyticsTopWidgets_0"]="partnerId= startDate= endDate= managedUserId= managedUserExternalId= limit= "
+    operation_parameters["getPartnerBillingOverview_0"]="partnerId= "
+    operation_parameters["getPartnerContract_0"]="partnerId= "
+    operation_parameters["getPartnerCreditBalance_0"]="partnerId= "
+    operation_parameters["getPartnerCreditTransactions_0"]="partnerId= limit= offset= type= "
+    operation_parameters["getPartnerDataDatabase_0"]="partnerId= "
+    operation_parameters["getPartnerDesignDefaults_0"]="partnerId= "
+    operation_parameters["getPartnerEntryContextSigning_0"]="partnerId= "
+    operation_parameters["getPartnerNotificationSettings_0"]="partnerId= "
+    operation_parameters["getPartnerStorageDestination_0"]="partnerId= "
+    operation_parameters["getPartnerStorageUsage_0"]="partnerId= limit= offset= "
+    operation_parameters["listPartnerNotificationDeliveries_0"]="partnerId= limit= "
+    operation_parameters["listPartnerNotifications_0"]="partnerId= limit= before= "
+    operation_parameters["listPartnerPresets_0"]="partnerId= "
+    operation_parameters["removePartnerAdapterConnection_0"]="partnerId= adapterId= credentialKey= "
+    operation_parameters["removePartnerDataDatabase_0"]="partnerId= "
+    operation_parameters["removePartnerPreset_0"]="partnerId= key= "
+    operation_parameters["removePartnerStorageDestination_0"]="partnerId= "
+    operation_parameters["replayPartnerNotificationDelivery_0"]="partnerId= deliveryId= Idempotency-Key: "
+    operation_parameters["rotatePartnerEntryContextSecret_0"]="partnerId= Idempotency-Key: "
+    operation_parameters["rotatePartnerWebhookSecret_0"]="partnerId= Idempotency-Key: "
+    operation_parameters["sendPartnerNotificationTestEvent_0"]="partnerId= Idempotency-Key: "
+    operation_parameters["setPartnerAdapterConnection_0"]="partnerId= adapterId= credentialKey= "
+    operation_parameters["setPartnerDataDatabase_0"]="partnerId= "
+    operation_parameters["setPartnerDesignDefaults_0"]="partnerId= "
+    operation_parameters["setPartnerPreset_0"]="partnerId= key= "
+    operation_parameters["setPartnerStorageDestination_0"]="partnerId= "
+    operation_parameters["updatePartnerEntryContextSigning_0"]="partnerId= Idempotency-Key: "
+    operation_parameters["updatePartnerNotificationSettings_0"]="partnerId= Idempotency-Key: "
+    operation_parameters["verifyPartnerDataDatabase_0"]="partnerId= "
+    operation_parameters["verifyPartnerStorageDestination_0"]="partnerId= "
+    operation_parameters["callPublicCompositionAdapter_0"]="compositionId= adapterId= operation= "
+    operation_parameters["createPublicCompositionEntry_0"]="compositionId= table= X-Widgetic-Write-Token: "
+    operation_parameters["getPublicCompositionEmbed_0"]="compositionId= "
+    operation_parameters["getPublicCompositionIframe_0"]="compositionId= "
+    operation_parameters["postPublicCompositionEmbedStatus_0"]=""
+    operation_parameters["uploadPublicCompositionAdapterFile_0"]="compositionId= ticket= "
+    operation_parameters["validateToken_0"]=""
+    operation_parameters["uploadsGet_0"]="limit= managedUserId= managedUserExternalId= "
+    operation_parameters["uploadsIdDelete_0"]="id= "
+    operation_parameters["uploadsIdGet_0"]="id= "
+    operation_parameters["uploadsLimitsGet_0"]=""
+    operation_parameters["uploadsPost_0"]=""
+    operation_parameters["addPersonalWorkspaceDomain_0"]="id= "
+    operation_parameters["createUserApiKey_0"]="id= Idempotency-Key: "
+    operation_parameters["deletePersonalWorkspaceDomain_0"]="id= domainId= "
+    operation_parameters["deleteUserApiKey_0"]="id= keyId= "
+    operation_parameters["getPersonalWorkspaceDomains_0"]="id= "
+    operation_parameters["getUserAdapterConnections_0"]="userId= "
+    operation_parameters["getUserApiKeyUsageLogs_0"]="id= keyId= limit= "
+    operation_parameters["getUserApiKeys_0"]="id= "
+    operation_parameters["removeUserAdapterConnection_0"]="userId= adapterId= credentialKey= "
+    operation_parameters["setUserAdapterConnection_0"]="userId= adapterId= credentialKey= "
+    operation_parameters["updatePersonalWorkspaceDomain_0"]="id= domainId= "
+    operation_parameters["updateUserApiKey_0"]="id= keyId= "
+    operation_parameters["createCompositionFromWidget_0"]="id= Idempotency-Key: "
+    operation_parameters["createWidget_0"]="Idempotency-Key: "
+    operation_parameters["getWidgetsBatch_0"]=""
+    operation_parameters["getWidgets_0"]="page= size= canvasId= managedUserId= managedUserExternalId= "
+
+    # An associative array of possible values for enum parameters
+    declare -A operation_parameters_enum_values
+    operation_parameters_enum_values["getManagedUserEntitlements_0::includeExpired"]="true false"
+    operation_parameters_enum_values["getManagedUserEntitlements_0::includeExpired"]="true false"
+    operation_parameters_enum_values["getManagedUserEntitlements_0::includeExpired"]="true false"
+    operation_parameters_enum_values["getManagedUserEntitlements_0::includeExpired"]="true false"
+    operation_parameters_enum_values["getPartnerEntitlements_0::includeExpired"]="true false"
+    operation_parameters_enum_values["getPartnerEntitlements_0::includeExpired"]="true false"
+    operation_parameters_enum_values["getPartnerEntitlements_0::includeExpired"]="true false"
+    operation_parameters_enum_values["getPartnerEntitlements_0::includeExpired"]="true false"
+    operation_parameters_enum_values["getManagedUserEntitlements::includeExpired"]="true false"
+    operation_parameters_enum_values["getManagedUserEntitlements::includeExpired"]="true false"
+    operation_parameters_enum_values["getManagedUserEntitlements::includeExpired"]="true false"
+    operation_parameters_enum_values["getManagedUserEntitlements::includeExpired"]="true false"
+    operation_parameters_enum_values["getPartnerEntitlements::includeExpired"]="true false"
+    operation_parameters_enum_values["getPartnerEntitlements::includeExpired"]="true false"
+    operation_parameters_enum_values["getPartnerEntitlements::includeExpired"]="true false"
+    operation_parameters_enum_values["getPartnerEntitlements::includeExpired"]="true false"
+
+    #
+    # Check if this is OSX and use special __osx_init_completion function
+    #
+    if [[ `uname` =~ "Darwin" ]]; then
+        __osx_init_completion || return
+    else
+        _init_completion -s || return
+    fi
+
+
+    # Check if operation is already in the command line provided
+    for word in "${words[@]}"; do
+        if [[ -n $word && ${operations[$word]} ]]; then
+            operation="${word}"
+        fi
+    done
+
+    if [[ -z $operation ]]; then
+        case $prev in
+            --ciphers|--connect-timeout|-C|--continue-at|-F|--form|--form-string|\
+            --ftp-account|--ftp-alternative-to-user|-P|--ftp-port|-H|--header|-h|\
+            --help|--hostpubmd5|--keepalive-time|--krb|--limit-rate|--local-port|\
+            --mail-from|--mail-rcpt|--max-filesize|--max-redirs|-m|--max-time|\
+            --pass|--proto|--proto-redir|--proxy-user|--proxy1.0|-Q|--quote|-r|\
+            --range|-X|--request|--retry|--retry-delay|--retry-max-time|\
+            --socks5-gssapi-service|-t|--telnet-option|--tftp-blksize|-z|\
+            --time-cond|--url|-u|--user|-A|--user-agent|-V|--version|-w|\
+            --write-out|--resolve|--tlsuser|--tlspassword|--about)
+                return
+                ;;
+            -K|--config|-b|--cookie|-c|--cookie-jar|-D|--dump-header|--egd-file|\
+            --key|--libcurl|-o|--output|--random-file|-T|--upload-file|--trace|\
+            --trace-ascii|--netrc-file)
+                _filedir
+                return
+                ;;
+            --cacert|-E|--cert)
+                _filedir '@(c?(e)rt|cer|pem|der)'
+                return
+                ;;
+            --capath)
+                _filedir -d
+                return
+                ;;
+            --cert-type|--key-type)
+                COMPREPLY=( $( compgen -W 'DER PEM ENG' -- "$cur" ) )
+                return
+                ;;
+            --crlfile)
+                _filedir crl
+                return
+                ;;
+            -d|--data|--data-ascii|--data-binary|--data-urlencode)
+                if [[ $cur == \@* ]]; then
+                    cur=${cur:1}
+                    _filedir
+                    COMPREPLY=( "${COMPREPLY[@]/#/@}" )
+                fi
+                return
+                ;;
+            --delegation)
+                COMPREPLY=( $( compgen -W 'none policy always' -- "$cur" ) )
+                return
+                ;;
+            --engine)
+                COMPREPLY=( $( compgen -W 'list' -- "$cur" ) )
+                return
+                ;;
+            --ftp-method)
+                COMPREPLY=( $( compgen -W 'multicwd nocwd singlecwd' -- "$cur" ) )
+                return
+                ;;
+            --ftp-ssl-ccc-mode)
+                COMPREPLY=( $( compgen -W 'active passive' -- "$cur" ) )
+                return
+                ;;
+            --interface)
+                _available_interfaces -a
+                return
+                ;;
+            -x|--proxy|--socks4|--socks4a|--socks5|--socks5-hostname)
+                _known_hosts_real
+                return
+                ;;
+            --pubkey)
+                _filedir pub
+                return
+                ;;
+            --stderr)
+                COMPREPLY=( $( compgen -W '-' -- "$cur" ) )
+                _filedir
+                return
+                ;;
+            --tlsauthtype)
+                COMPREPLY=( $( compgen -W 'SRP' -- "$cur" ) )
+                return
+                ;;
+            --host)
+                COMPREPLY=( $( compgen -W 'http:// https://' -- "$cur" ) )
+                return
+                ;;
+            -ct|--content-type|-ac|--accept)
+                COMPREPLY=( $( compgen -W '${!mime_type_abbreviations[*]}' -- "$cur" ) )
+                return
+                ;;
+        esac
+    fi
+
+    #
+    # Complete the server address based on ~/.ssh/known_hosts
+    # and ~/.ssh/config
+    #
+    local prefix=${COMP_WORDS[COMP_CWORD-2]}
+    local colon=${COMP_WORDS[COMP_CWORD-1]}
+    if [[ "$colon" == ":" && ( $prefix == "https" || $prefix == "http" ) ]]; then
+        COMPREPLY=()
+        local comp_ssh_hosts=`[[ -f ~/.ssh/known_hosts ]] && \
+                              ( cat ~/.ssh/known_hosts | \
+                              grep '^[a-zA-Z0-9]' | \
+                              cut -f 1 -d ' ' | \
+                              sed -e s/,.*//g | \
+                              grep -v ^# | \
+                              uniq | \
+                              grep -v "\[" ) ;
+                              [[ -f ~/.ssh/config ]] && \
+                              ( cat ~/.ssh/config | \
+                              grep "^Host " | \
+                              awk '{print $2}' )`
+        COMPREPLY=( $( compgen -P '//' -W '${comp_ssh_hosts}' -- "${cur:2}") )
+        return
+    fi
+
+    #
+    # Complete the client.sh and cURL's arguments
+    #
+    if [[ $cur == -* ]]; then
+        COMPREPLY=( $( compgen -W '$(_parse_help curl) $(_parse_help $1)' -- "$cur" ) )
+        return
+    fi
+
+    #
+    # If the argument starts with a letter this could be either an operation
+    # or an operation parameter
+    # When $cur is empty, suggest the list of operations by default
+    #
+    if [[ $cur =~ ^[A-Za-z_0-9]* ]]; then
+        # If operation has not been yet selected, suggest the list of operations
+        # otherwise suggest arguments of this operation as declared in the
+        # OpenAPI specification
+        if [[ -z $operation ]]; then
+            COMPREPLY=( $(compgen -W '${!operations[*]}' -- ${cur}) )
+        else
+            COMPREPLY=( $(compgen -W '${operation_parameters[$operation]}' -- ${cur}) )
+            compopt -o nospace
+        fi
+        return
+    fi
+
+} &&
+complete -F _client.sh client.sh
+
+# ex: ts=4 sw=4 et filetype=sh
