@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **scope** | **string** |  | [default to null]
 **connected** | **boolean** |  | [default to null]
 **updatedAt** | **string** |  | [default to null]
+**confirmation** | **string** |  | [default to null]
+**awaitingConfirmation** | **boolean** |  | [default to null]
+**confirmedAt** | **string** |  | [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

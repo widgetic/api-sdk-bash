@@ -153,7 +153,12 @@ managed user:
   session and hand the editors your own media library instead ('mediaLibrary').
 - 'editor': edit one of this user's compositions: read it ('getCompositionById', its content, design,
   embed settings and schemas), check a content change ('validateCompositionContent'), and change its
-  name, content, design and embed settings ('updateComposition', 'setDynamicContent'). It can reach
+  name, content, design and embed settings ('updateComposition', 'setDynamicContent'). For a widget that
+  answers visitors' questions from documents (the 'ai-answers' adapter), it also lists those documents,
+  adds one as text or as a file (a text file or a picture; a PDF once PDFs are read), and removes one
+  ('getAiAnswersKnowledge', 'addAiAnswersKnowledgeDocument', 'addAiAnswersKnowledgeFile',
+  'removeAiAnswersKnowledgeDocument'); adding costs no credits, and is limited for each of your users
+  separately. It can reach
   only compositions you created for this managed user (tag them with 'managedUserId' when you create
   them); any other composition, including another of your users', answers 404.
 - 'creator': use Widgetic's widget creator for this user, including its AI. Draw on canvases and save
@@ -188,6 +193,28 @@ managed user:
   yours. A session cannot make a widget public (publishing a version does not), file one under a
   project or an organization, or set anything the creator does not set: a body with another field is
   refused with 403 and 'EDITOR_SESSION_FIELD_NOT_ALLOWED'.
+- 'workflows': use Widgetic's Workflows editor for this user. List their workflows and the compositions
+  a workflow of theirs can chain ('listWorkspaceWorkflows', 'listWorkspaceWorkflowCompositionOptions');
+  list the starting points you offer them and make a workflow from one, which gives the user their own copy
+  of every widget it chains, a composition of their own on each copy, and a draft
+  ('listWorkspaceWorkflowPresets', 'createWorkspaceWorkflowFromPreset'; you offer them with
+  'setPartnerWorkflowPreset');
+  make, open, change and delete one ('createWorkspaceWorkflow', 'getWorkspaceWorkflow',
+  'saveWorkspaceWorkflow', 'deleteWorkspaceWorkflow') and copy it ('duplicateWorkspaceWorkflow'); publish
+  it or discard the changes of its draft ('publishWorkspaceWorkflow',
+  'discardWorkspaceWorkflowChanges'); read and restore its versions ('listWorkspaceWorkflowVersions',
+  'getWorkspaceWorkflowVersion', 'restoreWorkspaceWorkflowVersion'); pause, resume, archive and unarchive it
+  ('pauseWorkspaceWorkflow', 'resumeWorkspaceWorkflow', 'archiveWorkspaceWorkflow',
+  'unarchiveWorkspaceWorkflow'); and read its counts ('getWorkspaceWorkflowStats'). The workspace in each
+  path is 'personal': a session has no other, and a path that names an organization is refused. What the
+  session makes is filed for this managed user ('managedUserId'), the lists hold only this user's workflows,
+  and it can reach only workflows made for this managed user; any other workflow, including one of yours
+  or of another of your users, answers 404. A workflow can chain only the compositions you made for this
+  managed user (tag them with 'managedUserId'): one that belongs to anybody else is not available, and
+  publishing a workflow that uses it is refused. A customer can have at most 50 workflows, and what a
+  customer's session reads never says who published a version. A session cannot set who a workflow belongs
+  to or which workspace it is in: a body with another field is refused with 403 and
+  'EDITOR_SESSION_FIELD_NOT_ALLOWED'.
 
 Everything else is refused with 403 and 'EDITOR_SESSION_ROUTE_NOT_ALLOWED': a session cannot read your
 account, make more sessions, change your presets or delete a composition, and a session without the 'creator' surface cannot

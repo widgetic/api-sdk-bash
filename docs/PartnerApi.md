@@ -5,9 +5,13 @@ All URIs are relative to */v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addAiAnswersKnowledgeDocument**](PartnerApi.md#addAiAnswersKnowledgeDocument) | **POST** /compositions/{id}/adapters/ai-answers/knowledge/documents | Add a document for a widget&#39;s AI to answer from
+[**addAiAnswersKnowledgeFile**](PartnerApi.md#addAiAnswersKnowledgeFile) | **POST** /compositions/{id}/adapters/ai-answers/knowledge/documents/file | Add a text file or a picture of a document (a PDF once PDFs are read) for a widget&#39;s AI to answer from
 [**addPersonalWorkspaceDomain**](PartnerApi.md#addPersonalWorkspaceDomain) | **POST** /users/{id}/workspace/domains | Allow a website to show your widgets
+[**archiveWorkspaceWorkflow**](PartnerApi.md#archiveWorkspaceWorkflow) | **POST** /workspaces/{workspaceId}/workflows/{workflowId}/archive | Archive a Workflow
 [**callPublicCompositionAdapter**](PartnerApi.md#callPublicCompositionAdapter) | **POST** /embed/compositions/{compositionId}/adapters/{adapterId}/{operation} | Call a gateway operation of an adapter a published widget uses
 [**checkCompositionAccess**](PartnerApi.md#checkCompositionAccess) | **GET** /compositions/{id}/access | Check Composition Access
+[**confirmPartnerAdapterConnection**](PartnerApi.md#confirmPartnerAdapterConnection) | **POST** /partners/{partnerId}/adapter-connections/{adapterId}/{credentialKey}/confirm | Confirm a partner&#39;s adapter address with the code that was emailed to it
+[**confirmUserAdapterConnection**](PartnerApi.md#confirmUserAdapterConnection) | **POST** /users/{userId}/adapter-connections/{adapterId}/{credentialKey}/confirm | Confirm an adapter address with the code that was emailed to it
 [**copyPresetForManagedUser**](PartnerApi.md#copyPresetForManagedUser) | **POST** /managed-users/{id}/presets/{key}/copy | Give a managed user a copy of one of your presets
 [**createCanvas**](PartnerApi.md#createCanvas) | **POST** /canvases | Create Canvas
 [**createComposition**](PartnerApi.md#createComposition) | **POST** /compositions | Create Composition
@@ -21,6 +25,10 @@ Method | HTTP request | Description
 [**createPublicCompositionEntry**](PartnerApi.md#createPublicCompositionEntry) | **POST** /embed/compositions/{compositionId}/entries/{table} | Append a visitor entry through the gateway
 [**createUserApiKey**](PartnerApi.md#createUserApiKey) | **POST** /users/{id}/keys | Create an API key
 [**createWidget**](PartnerApi.md#createWidget) | **POST** /widgets | Create Widget
+[**createWorkspaceWorkflow**](PartnerApi.md#createWorkspaceWorkflow) | **POST** /workspaces/{workspaceId}/workflows | Create a Workflow
+[**createWorkspaceWorkflowFromPreset**](PartnerApi.md#createWorkspaceWorkflowFromPreset) | **POST** /workspaces/{workspaceId}/workflows/from-preset | Start a Workflow from a starting point
+[**deleteBrandKit**](PartnerApi.md#deleteBrandKit) | **DELETE** /brand-kit | Reset the Brand Kit to the default
+[**deleteBrandKitAsset**](PartnerApi.md#deleteBrandKitAsset) | **DELETE** /brand-kit/assets/{assetId} | Remove a font or icon from the Brand Kit
 [**deleteCanvas**](PartnerApi.md#deleteCanvas) | **DELETE** /canvases/{id} | Delete Canvas
 [**deleteComposition**](PartnerApi.md#deleteComposition) | **DELETE** /compositions/{id} | Delete Composition
 [**deleteCompositionContentItem**](PartnerApi.md#deleteCompositionContentItem) | **DELETE** /compositions/{id}/content/{list}/items/{itemId} | Delete a content list item
@@ -30,13 +38,17 @@ Method | HTTP request | Description
 [**deleteManagedUser**](PartnerApi.md#deleteManagedUser) | **DELETE** /managed-users/{id} | Delete Managed User
 [**deletePersonalWorkspaceDomain**](PartnerApi.md#deletePersonalWorkspaceDomain) | **DELETE** /users/{id}/workspace/domains/{domainId} | Stop allowing a website to show your widgets
 [**deleteUserApiKey**](PartnerApi.md#deleteUserApiKey) | **DELETE** /users/{id}/keys/{keyId} | Delete an API key
+[**deleteWorkspaceWorkflow**](PartnerApi.md#deleteWorkspaceWorkflow) | **DELETE** /workspaces/{workspaceId}/workflows/{workflowId} | Delete a Workflow
 [**describeCompositionEntries**](PartnerApi.md#describeCompositionEntries) | **GET** /compositions/{id}/entries | Describe What a Composition Keeps
+[**discardWorkspaceWorkflowChanges**](PartnerApi.md#discardWorkspaceWorkflowChanges) | **POST** /workspaces/{workspaceId}/workflows/{workflowId}/discard | Discard the Unpublished Changes of a Workflow
 [**duplicateComposition**](PartnerApi.md#duplicateComposition) | **POST** /compositions/{id}/duplicate | Duplicate Composition
+[**duplicateWorkspaceWorkflow**](PartnerApi.md#duplicateWorkspaceWorkflow) | **POST** /workspaces/{workspaceId}/workflows/{workflowId}/duplicate | Duplicate a Workflow
 [**exportCompositionEntryItems**](PartnerApi.md#exportCompositionEntryItems) | **GET** /compositions/{id}/entries/{table}/export | Export composition entry items
 [**getAiAnswersKnowledge**](PartnerApi.md#getAiAnswersKnowledge) | **GET** /compositions/{id}/adapters/ai-answers/knowledge | See the documents a widget&#39;s AI answers from
 [**getAllCanvases**](PartnerApi.md#getAllCanvases) | **GET** /canvases | Get All Canvases
 [**getAllCompositions**](PartnerApi.md#getAllCompositions) | **GET** /compositions | Get All Compositions
 [**getAllManagedUsers**](PartnerApi.md#getAllManagedUsers) | **GET** /managed-users | Get Managed Users
+[**getBrandKit**](PartnerApi.md#getBrandKit) | **GET** /brand-kit | The Brand Kit of the current workspace
 [**getCanvas**](PartnerApi.md#getCanvas) | **GET** /canvases/{id} | Get Canvas
 [**getCompositionById**](PartnerApi.md#getCompositionById) | **GET** /compositions/{id} | Get Composition
 [**getCompositionContent**](PartnerApi.md#getCompositionContent) | **GET** /compositions/{id}/content | Get Current Content
@@ -79,6 +91,9 @@ Method | HTTP request | Description
 [**getPersonalWorkspaceDomains**](PartnerApi.md#getPersonalWorkspaceDomains) | **GET** /users/{id}/workspace/domains | List the websites allowed to show your widgets
 [**getPublicCompositionEmbed**](PartnerApi.md#getPublicCompositionEmbed) | **GET** /embed/compositions/{compositionId} | Resolve a composition UUID to a published widget URL
 [**getPublicCompositionIframe**](PartnerApi.md#getPublicCompositionIframe) | **GET** /embed/compositions/{compositionId}/frame | Embed a published composition with its saved values
+[**getPublicWorkflow**](PartnerApi.md#getPublicWorkflow) | **GET** /embed/workflows/{workflowId} | Read the published Workflow of an embed
+[**getPublicWorkflowFrame**](PartnerApi.md#getPublicWorkflowFrame) | **GET** /embed/workflows/{workflowId}/frame | Show a published Workflow in a page of its own
+[**getPublicWorkflowVersion**](PartnerApi.md#getPublicWorkflowVersion) | **GET** /embed/workflows/{workflowId}/versions/{versionId} | Read one published version of a Workflow
 [**getUserAdapterConnections**](PartnerApi.md#getUserAdapterConnections) | **GET** /users/{userId}/adapter-connections | See which adapter keys an account has connected
 [**getUserApiKeyUsageLogs**](PartnerApi.md#getUserApiKeyUsageLogs) | **GET** /users/{id}/api-keys/{keyId}/logs | Read what an API key was used for
 [**getUserApiKeys**](PartnerApi.md#getUserApiKeys) | **GET** /users/{id}/keys | List the API keys of an account
@@ -86,26 +101,46 @@ Method | HTTP request | Description
 [**getUserCreditTransactions**](PartnerApi.md#getUserCreditTransactions) | **GET** /credits/user/{userId}/transactions | List an account&#39;s credit ledger
 [**getWidgets**](PartnerApi.md#getWidgets) | **GET** /widgets | List Widgets
 [**getWidgetsBatch**](PartnerApi.md#getWidgetsBatch) | **POST** /widgets/batch | Get Widgets Batch
+[**getWorkspaceWorkflow**](PartnerApi.md#getWorkspaceWorkflow) | **GET** /workspaces/{workspaceId}/workflows/{workflowId} | Get a Workflow
+[**getWorkspaceWorkflowStats**](PartnerApi.md#getWorkspaceWorkflowStats) | **GET** /workspaces/{workspaceId}/workflows/{workflowId}/stats | Get what Visitors Did in a Workflow
+[**getWorkspaceWorkflowVersion**](PartnerApi.md#getWorkspaceWorkflowVersion) | **GET** /workspaces/{workspaceId}/workflows/{workflowId}/versions/{versionId} | Get a Published Version of a Workflow
 [**listCompositionEntryItems**](PartnerApi.md#listCompositionEntryItems) | **GET** /compositions/{id}/entries/{table}/items | List composition entry items with paging and filters
 [**listManagedUserEntries**](PartnerApi.md#listManagedUserEntries) | **GET** /managed-users/{id}/entries | List entries across a managed user&#39;s compositions
 [**listPartnerNotificationDeliveries**](PartnerApi.md#listPartnerNotificationDeliveries) | **GET** /partners/{partnerId}/notifications/deliveries | How your notifications reached you
 [**listPartnerNotifications**](PartnerApi.md#listPartnerNotifications) | **GET** /partners/{partnerId}/notifications | What your partner account was told
 [**listPartnerPresets**](PartnerApi.md#listPartnerPresets) | **GET** /partners/{partnerId}/presets | List the widgets a partner offers as presets
+[**listPartnerWorkflowPresets**](PartnerApi.md#listPartnerWorkflowPresets) | **GET** /partners/{partnerId}/workflow-presets | List the workflows a partner offers as places to start
+[**listWorkspaceWorkflowCompositionOptions**](PartnerApi.md#listWorkspaceWorkflowCompositionOptions) | **GET** /workspaces/{workspaceId}/workflows/composition-options | List the compositions a workflow can show, and what each can do
+[**listWorkspaceWorkflowPresets**](PartnerApi.md#listWorkspaceWorkflowPresets) | **GET** /workspaces/{workspaceId}/workflows/presets | List the starting points for a new Workflow
+[**listWorkspaceWorkflowVersions**](PartnerApi.md#listWorkspaceWorkflowVersions) | **GET** /workspaces/{workspaceId}/workflows/{workflowId}/versions | List the Published Versions of a Workflow
+[**listWorkspaceWorkflows**](PartnerApi.md#listWorkspaceWorkflows) | **GET** /workspaces/{workspaceId}/workflows | List the Workflows of a Workspace
 [**operationsIdGet**](PartnerApi.md#operationsIdGet) | **GET** /operations/{id} | Get operation status
+[**patchBrandKit**](PartnerApi.md#patchBrandKit) | **PATCH** /brand-kit | Change part of the Brand Kit
+[**patchBrandKitAsset**](PartnerApi.md#patchBrandKitAsset) | **PATCH** /brand-kit/assets/{assetId} | Rename an icon or relabel a font variant
 [**patchCompositionContentItem**](PartnerApi.md#patchCompositionContentItem) | **PATCH** /compositions/{id}/content/{list}/items/{itemId} | Update a content list item
+[**pauseWorkspaceWorkflow**](PartnerApi.md#pauseWorkspaceWorkflow) | **POST** /workspaces/{workspaceId}/workflows/{workflowId}/pause | Pause a Workflow
+[**postBrandKitFont**](PartnerApi.md#postBrandKitFont) | **POST** /brand-kit/fonts | Upload a font file to the Brand Kit
+[**postBrandKitIcon**](PartnerApi.md#postBrandKitIcon) | **POST** /brand-kit/icons | Add a named SVG icon to the Brand Kit
 [**postPublicCompositionEmbedStatus**](PartnerApi.md#postPublicCompositionEmbedStatus) | **POST** /embed/compositions/status | Batch-check whether compositions are currently served for embed
+[**publishWorkspaceWorkflow**](PartnerApi.md#publishWorkspaceWorkflow) | **POST** /workspaces/{workspaceId}/workflows/{workflowId}/publish | Publish the Draft of a Workflow
+[**putBrandKit**](PartnerApi.md#putBrandKit) | **PUT** /brand-kit | Save Brand Kit tokens
 [**readCompositionEntries**](PartnerApi.md#readCompositionEntries) | **GET** /compositions/{id}/entries/{table} | Read the Entries of a Composition&#39;s Table
 [**removeAiAnswersKnowledgeDocument**](PartnerApi.md#removeAiAnswersKnowledgeDocument) | **DELETE** /compositions/{id}/adapters/ai-answers/knowledge/documents/{documentId} | Remove a document from a widget&#39;s knowledge base
 [**removePartnerAdapterConnection**](PartnerApi.md#removePartnerAdapterConnection) | **DELETE** /partners/{partnerId}/adapter-connections/{adapterId}/{credentialKey} | Remove an adapter key from a partner
 [**removePartnerDataDatabase**](PartnerApi.md#removePartnerDataDatabase) | **DELETE** /partners/{partnerId}/data-database | Stop keeping the data of a partner&#39;s compositions in its own database
 [**removePartnerPreset**](PartnerApi.md#removePartnerPreset) | **DELETE** /partners/{partnerId}/presets/{key} | Take a widget off the partner&#39;s presets
 [**removePartnerStorageDestination**](PartnerApi.md#removePartnerStorageDestination) | **DELETE** /partners/{partnerId}/storage | Stop storing a partner&#39;s uploaded files in its own bucket
+[**removePartnerWorkflowPreset**](PartnerApi.md#removePartnerWorkflowPreset) | **DELETE** /partners/{partnerId}/workflow-presets/{key} | Stop offering a workflow as a place to start
 [**removeUserAdapterConnection**](PartnerApi.md#removeUserAdapterConnection) | **DELETE** /users/{userId}/adapter-connections/{adapterId}/{credentialKey} | Remove an adapter key from an account
 [**replayPartnerNotificationDelivery**](PartnerApi.md#replayPartnerNotificationDelivery) | **POST** /partners/{partnerId}/notifications/deliveries/{deliveryId}/replay | Send a webhook delivery again
+[**reportPublicWorkflowEvents**](PartnerApi.md#reportPublicWorkflowEvents) | **POST** /embed/workflows/{workflowId}/events | Report what visitors did in a Workflow, as counts
+[**restoreWorkspaceWorkflowVersion**](PartnerApi.md#restoreWorkspaceWorkflowVersion) | **POST** /workspaces/{workspaceId}/workflows/{workflowId}/versions/{versionId}/restore | Restore a Version of a Workflow into the Draft
+[**resumeWorkspaceWorkflow**](PartnerApi.md#resumeWorkspaceWorkflow) | **POST** /workspaces/{workspaceId}/workflows/{workflowId}/resume | Resume a Paused Workflow
 [**revokeManagedUserEditorSession**](PartnerApi.md#revokeManagedUserEditorSession) | **DELETE** /managed-users/{id}/editor-sessions/{sessionId} | End one editor session of a managed user
 [**revokeManagedUserEditorSessions**](PartnerApi.md#revokeManagedUserEditorSessions) | **DELETE** /managed-users/{id}/editor-sessions | End every editor session of a managed user
 [**rotatePartnerEntryContextSecret**](PartnerApi.md#rotatePartnerEntryContextSecret) | **POST** /partners/{partnerId}/entry-context-signing/secret | Make a secret to sign the context of your embeds
 [**rotatePartnerWebhookSecret**](PartnerApi.md#rotatePartnerWebhookSecret) | **POST** /partners/{partnerId}/notifications/webhook-secret | Make a new secret for your webhook
+[**saveWorkspaceWorkflow**](PartnerApi.md#saveWorkspaceWorkflow) | **PUT** /workspaces/{workspaceId}/workflows/{workflowId} | Save the Draft of a Workflow
 [**sendPartnerNotificationTestEvent**](PartnerApi.md#sendPartnerNotificationTestEvent) | **POST** /partners/{partnerId}/notifications/test-event | Send a test event to your webhook
 [**setCompositionDataSource**](PartnerApi.md#setCompositionDataSource) | **PUT** /compositions/{id}/data-source | Bind a public JSON data source for embed refresh
 [**setDynamicContent**](PartnerApi.md#setDynamicContent) | **PUT** /compositions/{id}/content | Set Dynamic Content
@@ -116,7 +151,9 @@ Method | HTTP request | Description
 [**setPartnerDesignDefaults**](PartnerApi.md#setPartnerDesignDefaults) | **PUT** /partners/{partnerId}/design-defaults | Set or clear partner-wide design defaults
 [**setPartnerPreset**](PartnerApi.md#setPartnerPreset) | **PUT** /partners/{partnerId}/presets/{key} | Make a widget a preset, or replace a preset
 [**setPartnerStorageDestination**](PartnerApi.md#setPartnerStorageDestination) | **PUT** /partners/{partnerId}/storage | Set where a partner&#39;s uploaded files are stored
+[**setPartnerWorkflowPreset**](PartnerApi.md#setPartnerWorkflowPreset) | **PUT** /partners/{partnerId}/workflow-presets/{key} | Offer a workflow as a place to start, or replace what a key offers
 [**setUserAdapterConnection**](PartnerApi.md#setUserAdapterConnection) | **PUT** /users/{userId}/adapter-connections/{adapterId}/{credentialKey} | Connect an adapter key to an account
+[**unarchiveWorkspaceWorkflow**](PartnerApi.md#unarchiveWorkspaceWorkflow) | **POST** /workspaces/{workspaceId}/workflows/{workflowId}/unarchive | Unarchive a Workflow
 [**updateCanvas**](PartnerApi.md#updateCanvas) | **PUT** /canvases/{id} | Update Canvas
 [**updateComposition**](PartnerApi.md#updateComposition) | **PUT** /compositions/{id} | Update Composition
 [**updateCompositionDatabaseRecord**](PartnerApi.md#updateCompositionDatabaseRecord) | **PUT** /compositions/{id}/database/{table}/{recordId} | Update Record In Composition Database
@@ -159,11 +196,13 @@ passages used for a question are sent to the AI model that writes the answer. Sa
 the widget. Do not add passwords, keys, personal data or anything that must stay private.
 
 **Limits.** A widget holds up to 20 documents, each up to 100000 characters, and up to 400000 characters in all
-('getAiAnswersKnowledge' reports the current numbers). Text only: convert PDF or Word files to text first. Adding a
-document costs no credits. The same text cannot be added twice to one widget (409).
+('getAiAnswersKnowledge' reports the current numbers). This call takes text. To add a text file or a picture of a
+document (a PDF too, once PDFs are read) without turning it into text yourself, use 'addAiAnswersKnowledgeFile'. Adding a document costs no
+credits. The same text cannot be added twice to one widget (409).
 
 The caller must be allowed to change the widget. An API key needs the 'content:write' scope. Adds are limited to ten
-in ten minutes per person.
+in ten minutes per person. A partner's customer in an editor session is one person of its own: its adds are not
+counted with the partner's other customers'.
 
 ### Example
 
@@ -178,8 +217,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | The widget (composition) to add the document to | [default to null]
  **addAiAnswersKnowledgeDocumentRequest** | [**AddAiAnswersKnowledgeDocumentRequest**](AddAiAnswersKnowledgeDocumentRequest.md) |  |
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -192,6 +231,87 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## addAiAnswersKnowledgeFile
+
+Add a text file or a picture of a document (a PDF once PDFs are read) for a widget's AI to answer from
+
+Gives the widget's AI a document made from a file. Send a 'multipart/form-data' request with the file in the field
+named 'file' and, if you like, a 'title'. The file is turned into text and then added exactly as
+'addAiAnswersKnowledgeDocument' adds text: the same cleaning, the same limits, the same refusal of a copy of a
+document the widget already has. The call returns once the document is ready to be used, which takes a few seconds
+(a PDF is read first, so it takes longer).
+
+**PDFs are not read yet.** For now a PDF is refused with 415, in a sentence that says what to do instead: paste the
+text, upload it as a text file, or upload its pages as pictures. What this description says about a PDF is what will
+hold from the day PDFs are read.
+
+**Which files.**
+- A **PDF** (not read yet, see above), up to 10 MB and 300 pages. Its text is read and its paragraphs are put back
+  together. A PDF that is only pictures of pages (a scan) has no text to read: upload the pages as pictures instead.
+  A PDF locked with a password is refused.
+- A **text file**: '.txt', '.text', '.md', '.markdown' or '.csv', in UTF-8, UTF-16 or Windows-1252.
+- A **picture of a document**: PNG, JPEG or WebP, up to 4 MB. The text in it is read with the same text recognition
+  as the 'ocr' adapter.
+- Word and other office files are not read yet: save the file as a PDF and upload that.
+
+What a file is comes from what is in it, not from its name or the type it is sent as. A file that is none of these is
+refused with 415.
+
+**The title.** Left out, the name of the file (without its extension) is the title. Visitors see the title as the
+source of an answer, so send one that means something to them.
+
+**The file is not kept.** Only its text, cut into passages, is kept, and 'getAiAnswersKnowledge' never returns it.
+
+**What leaves Widgetic.** As for text, the words of the document are sent to OpenAI to be embedded when it is added,
+and the passages used for a question are sent to the AI model that writes the answer. A picture is also sent to the
+text recognition service. A PDF is read on Widgetic's own servers and is not sent anywhere to be read. Say so in your
+privacy policy.
+
+**Treat every document as public.** An answer can quote or paraphrase anything a document says, to any visitor of
+the widget. Do not add passwords, keys, personal data or anything that must stay private.
+
+**Limits.** The widget's limits are those of 'addAiAnswersKnowledgeDocument' (up to 20 documents, each up to 100000
+characters of text, and up to 400000 characters in all; 'getAiAnswersKnowledge' reports the current numbers), and
+the file is at most 10 MB. Adding a document costs no credits. The same text cannot be added twice to one widget
+(409).
+
+The caller must be allowed to change the widget. An API key needs the 'content:write' scope. Adds, from text or from
+a file, share one limit of ten in ten minutes per person. A partner's customer in an editor session is one person
+of its own: its adds are not counted with the partner's other customers'.
+
+### Example
+
+```bash
+client.sh addAiAnswersKnowledgeFile id=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string** | The widget (composition) to add the document to | [default to null]
+ **file** | **binary** | The file, which is a text file or a picture of a document (a PDF is not read yet). One file only | [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **title** | **string** | What the document is called, on one line. Visitors see it as the source of an answer. Left out, the name of the file stands in for it | [optional] [default to null]
+
+### Return type
+
+[**AddAiAnswersKnowledgeDocument201Response**](AddAiAnswersKnowledgeDocument201Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -237,6 +357,49 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## archiveWorkspaceWorkflow
+
+Archive a Workflow
+
+Takes a workflow out of the default list and stops it serving: its embeds show only their first composition,
+as when paused. It is kept, with its versions and counts, until it is deleted.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can archive.
+
+### Example
+
+```bash
+client.sh archiveWorkspaceWorkflow workspaceId=value workflowId=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**SaveWorkspaceWorkflow200Response**](SaveWorkspaceWorkflow200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## callPublicCompositionAdapter
 
 Call a gateway operation of an adapter a published widget uses
@@ -244,7 +407,7 @@ Call a gateway operation of an adapter a published widget uses
 The door a widget's adapter module calls, from the visitor's browser, for the operations that cannot run in the browser: anything with a secret, a charge in credits or the owner's storage behind it. A widget that uses such an adapter is handed the address of this route as 'adapters.url' in its 'widgetic:host' message (see the host bridge contract) and calls '{adapters.url}/{adapterId}/{operation}'. It is not meant to be called by hand, and it takes no API key.
 **Address.** 'https://api.widgetic.com/embed/compositions/{compositionId}/adapters/{adapterId}/{operation}': the root of the API host, NOT under '/v1'. A client generated from this description for 'https://api.widgetic.com/v1' must be given the base address 'https://api.widgetic.com' for the calls of the 'Public Embed' tag.
 **What it serves.** Only an adapter, and a version of it, that the widget's LIVE manifest (what the version that is published uses) lists, and only an operation that runs on the gateway. Anything else is one 404 'ADAPTER_NOT_AVAILABLE', whatever the reason, so the route is no way to ask what a widget contains. An adapter an administrator stopped offering to NEW widgets keeps serving the widgets that already use it.
-**Who may call.** The same rule as the entry route: a permitted 'Origin' header, which is the artifact origin the widget runs from or a website the owner allowed (or the owner's own platform). Page script cannot forge it. A request without a permitted 'Origin' is 403 'ORIGIN_NOT_ALLOWED'. A composition that is not served (unpublished, or its owner's plan does not serve it) is 404, with the codes of the other public embed routes. When the partner of the owner signs the host context, a context that is not signed as the partner requires is refused with 403 'CONTEXT_SIGNATURE_REQUIRED', 'CONTEXT_SIGNATURE_INVALID' or 'CONTEXT_SIGNATURE_EXPIRED'.
+**Who may call.** The same rule as the entry route: a permitted 'Origin' header, which is the artifact origin the widget runs from or any website when the owner has not restricted the allowed websites (when the owner has, one of the websites the owner listed, Widgetic's own sites, the visitor's own machine or the owner's own platform). Page script cannot forge it. A request without a permitted 'Origin' is 403 'ORIGIN_NOT_ALLOWED'. A composition that is not served (unpublished, or its owner's plan does not serve it) is 404, with the codes of the other public embed routes. When the partner of the owner signs the host context, a context that is not signed as the partner requires is refused with 403 'CONTEXT_SIGNATURE_REQUIRED', 'CONTEXT_SIGNATURE_INVALID' or 'CONTEXT_SIGNATURE_EXPIRED'.
 **Cost and retries.** An operation priced in credits is charged to the owner of the widget (for a customer a partner manages, to the partner's administrator, within the monthly credits set for that customer), once for each 'requestId', before it runs, and given back if it does not answer. A 'requestId' that was charged and not given back is 409 'REQUEST_ALREADY_USED' and the operation is NOT run a second time; one whose charge was given back may be tried again with the same 'requestId'. A visitor never sees an owner's balance: a feature that cannot be used because its owner has no credits left, because the customer's monthly credits are spent, or because an administrator stopped the adapter, is the same 503 'ADAPTER_UNAVAILABLE' as every other \"not right now\". The owner is told through a notice.
 **Limits.** In front of everything, 120 calls a minute for each visitor address and composition and 600 a minute for a composition (429 'RATE_LIMITED'). Then, for each operation of a widget, a rate for each visitor address a minute and a cap for the widget a day: 30 and 5000 for an operation that is free, 10 and 500 for one that costs credits, unless the adapter says otherwise (never above 120 and 100000). A visitor over the rate is 429 'RATE_LIMITED'; a widget over its cap is 429 'WIDGET_LIMIT_REACHED'. Both carry a 'Retry-After' header. The body is at most 64 KiB (413 'PAYLOAD_TOO_LARGE') and JSON (415 'UNSUPPORTED_MEDIA_TYPE'); an operation has 30 seconds to answer (504 'ADAPTER_TIMEOUT', and the charge is given back).
 
@@ -310,6 +473,107 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## confirmPartnerAdapterConnection
+
+Confirm a partner's adapter address with the code that was emailed to it
+
+Some credentials are an email address Widgetic sends a widget's messages to ('confirmation: email_code' in
+'getPartnerAdapterConnections'). Saving one with 'setPartnerAdapterConnection' emails a six-digit code to it; this
+gives the code back. Only then is the address used: until it is confirmed, the widgets of the partner's customers
+that need it are not charged and their visitors are told the feature is unavailable.
+
+The code works for 30 minutes and for five wrong tries. After that, save the address again and a new code is
+emailed (not sooner than a minute after the last one). A code that is not made of digits is refused without
+counting as a try.
+
+Confirming an address that is already confirmed answers 200 with the same state, so a retry of a request that
+went through is harmless. Saving a different address, or the same one before it was confirmed, starts again.
+
+This needs an API key with full access. The caller must be the person who administers the partner, or a
+Widgetic administrator.
+
+### Example
+
+```bash
+client.sh confirmPartnerAdapterConnection partnerId=value adapterId=value credentialKey=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **partnerId** | **string** | The partner that keeps the address | [default to null]
+ **adapterId** | **string** | The adapter the address is for | [default to null]
+ **credentialKey** | **string** | The credential's name within the adapter | [default to null]
+ **confirmAdapterConnectionRequest** | [**ConfirmAdapterConnectionRequest**](ConfirmAdapterConnectionRequest.md) |  |
+
+### Return type
+
+[**SetUserAdapterConnection200Response**](SetUserAdapterConnection200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## confirmUserAdapterConnection
+
+Confirm an adapter address with the code that was emailed to it
+
+Some credentials are an email address Widgetic sends a widget's messages to ('confirmation: email_code' in
+'getUserAdapterConnections'). Saving one with 'setUserAdapterConnection' emails a six-digit code to it; this gives
+the code back. Only then is the address used: until it is confirmed, the widgets that need it are not charged and
+their visitors are told the feature is unavailable.
+
+The code works for 30 minutes and for five wrong tries. After that, save the address again and a new code is
+emailed (not sooner than a minute after the last one). A code that is not made of digits is refused without
+counting as a try.
+
+Confirming an address that is already confirmed answers 200 with the same state, so a retry of a request that
+went through is harmless. Saving a different address, or the same one before it was confirmed, starts again.
+
+This needs an API key with full access. The caller must be the account itself or a Widgetic administrator.
+
+### Example
+
+```bash
+client.sh confirmUserAdapterConnection userId=value adapterId=value credentialKey=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string** | The account that keeps the address. For your own, your own user id | [default to null]
+ **adapterId** | **string** | The adapter the address is for | [default to null]
+ **credentialKey** | **string** | The credential's name within the adapter | [default to null]
+ **confirmAdapterConnectionRequest** | [**ConfirmAdapterConnectionRequest**](ConfirmAdapterConnectionRequest.md) |  |
+
+### Return type
+
+[**SetUserAdapterConnection200Response**](SetUserAdapterConnection200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -455,8 +719,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
  **newComposition** | [**NewComposition**](NewComposition.md) |  |
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -496,8 +760,8 @@ Name | Type | Description  | Notes
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
  **createCompositionContentItemRequest** | [**CreateCompositionContentItemRequest**](CreateCompositionContentItemRequest.md) |  |
  **ifMatch** | **string** | Optional content version from ETag | [optional] [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -536,8 +800,8 @@ Name | Type | Description  | Notes
  **table** | **string** | Name of the database table | [default to null]
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
  **body** | **map** |  |
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -719,7 +983,12 @@ managed user:
   session and hand the editors your own media library instead ('mediaLibrary').
 - 'editor': edit one of this user's compositions: read it ('getCompositionById', its content, design,
   embed settings and schemas), check a content change ('validateCompositionContent'), and change its
-  name, content, design and embed settings ('updateComposition', 'setDynamicContent'). It can reach
+  name, content, design and embed settings ('updateComposition', 'setDynamicContent'). For a widget that
+  answers visitors' questions from documents (the 'ai-answers' adapter), it also lists those documents,
+  adds one as text or as a file (a text file or a picture; a PDF once PDFs are read), and removes one
+  ('getAiAnswersKnowledge', 'addAiAnswersKnowledgeDocument', 'addAiAnswersKnowledgeFile',
+  'removeAiAnswersKnowledgeDocument'); adding costs no credits, and is limited for each of your users
+  separately. It can reach
   only compositions you created for this managed user (tag them with 'managedUserId' when you create
   them); any other composition, including another of your users', answers 404.
 - 'creator': use Widgetic's widget creator for this user, including its AI. Draw on canvases and save
@@ -754,6 +1023,28 @@ managed user:
   yours. A session cannot make a widget public (publishing a version does not), file one under a
   project or an organization, or set anything the creator does not set: a body with another field is
   refused with 403 and 'EDITOR_SESSION_FIELD_NOT_ALLOWED'.
+- 'workflows': use Widgetic's Workflows editor for this user. List their workflows and the compositions
+  a workflow of theirs can chain ('listWorkspaceWorkflows', 'listWorkspaceWorkflowCompositionOptions');
+  list the starting points you offer them and make a workflow from one, which gives the user their own copy
+  of every widget it chains, a composition of their own on each copy, and a draft
+  ('listWorkspaceWorkflowPresets', 'createWorkspaceWorkflowFromPreset'; you offer them with
+  'setPartnerWorkflowPreset');
+  make, open, change and delete one ('createWorkspaceWorkflow', 'getWorkspaceWorkflow',
+  'saveWorkspaceWorkflow', 'deleteWorkspaceWorkflow') and copy it ('duplicateWorkspaceWorkflow'); publish
+  it or discard the changes of its draft ('publishWorkspaceWorkflow',
+  'discardWorkspaceWorkflowChanges'); read and restore its versions ('listWorkspaceWorkflowVersions',
+  'getWorkspaceWorkflowVersion', 'restoreWorkspaceWorkflowVersion'); pause, resume, archive and unarchive it
+  ('pauseWorkspaceWorkflow', 'resumeWorkspaceWorkflow', 'archiveWorkspaceWorkflow',
+  'unarchiveWorkspaceWorkflow'); and read its counts ('getWorkspaceWorkflowStats'). The workspace in each
+  path is 'personal': a session has no other, and a path that names an organization is refused. What the
+  session makes is filed for this managed user ('managedUserId'), the lists hold only this user's workflows,
+  and it can reach only workflows made for this managed user; any other workflow, including one of yours
+  or of another of your users, answers 404. A workflow can chain only the compositions you made for this
+  managed user (tag them with 'managedUserId'): one that belongs to anybody else is not available, and
+  publishing a workflow that uses it is refused. A customer can have at most 50 workflows, and what a
+  customer's session reads never says who published a version. A session cannot set who a workflow belongs
+  to or which workspace it is in: a body with another field is refused with 403 and
+  'EDITOR_SESSION_FIELD_NOT_ALLOWED'.
 
 Everything else is refused with 403 and 'EDITOR_SESSION_ROUTE_NOT_ALLOWED': a session cannot read your
 account, make more sessions, change your presets or delete a composition, and a session without the 'creator' surface cannot
@@ -822,8 +1113,9 @@ charged to ('getPartnerCreditBalance' shows it). Extra credits **do not expire**
 contract period, which end with it. Nothing is added before the invoice is paid, and an unpaid invoice for
 extra credits never stops the partner: only an unpaid invoice of the contract does ('payment_arrears').
 
-Allowed whatever the partner's standing: a partner that has run out of credits, or is stopped for an unpaid
-contract invoice, can still buy. No contract is needed.
+Available only to partners that have an active paid contract in force with Widgetic ('NO_PAID_CONTRACT' when
+none is in force) and no overdue contract invoice ('CONTRACT_INVOICE_OVERDUE' while a contract invoice is past
+its due day). A partner that has run out of credits during its period can buy more at the list price.
 
 An 'Idempotency-Key' is required, and it is what makes a retry safe: the same key with the same body returns
 the invoice already issued, the same key with a different body is refused with 422, and a duplicate that
@@ -868,14 +1160,14 @@ Name | Type | Description  | Notes
 
 Append a visitor entry through the gateway
 
-Public append-only write into a published composition database. No API key. The browser must send a permitted 'Origin' header (the artifact iframe origin or a website the owner allowed). When the request comes from the shared artifact origin, it must also carry the per-composition write token ('X-Widgetic-Write-Token' header or 'writeToken' body field, handed to the widget in 'widgetic:host' as 'entries.writeToken' and returned as 'entryWriteToken' on 'getPublicCompositionEmbed'). Host 'context' is stored for partner attribution; it is not authenticated unless the partner signs it (see **Signed context**). Request bodies are limited to 16 KB before parsing.
+Public append-only write into a published composition database. No API key. The browser must send a permitted 'Origin' header: the artifact iframe origin, or any website when the owner has not restricted the allowed websites (when the owner has, one of the websites the owner listed, Widgetic's own sites, the visitor's own machine or the owner's own platform). When the request comes from the shared artifact origin, it must also carry the per-composition write token ('X-Widgetic-Write-Token' header or 'writeToken' body field, handed to the widget in 'widgetic:host' as 'entries.writeToken' and returned as 'entryWriteToken' on 'getPublicCompositionEmbed'). Host 'context' is stored for partner attribution; it is not authenticated unless the partner signs it (see **Signed context**). Request bodies are limited to 16 KB before parsing.
 **Address.** 'https://api.widgetic.com/embed/compositions/{compositionId}/entries/{table}': the root of the API host, NOT under '/v1'. A client generated from this description for 'https://api.widgetic.com/v1' must be given the base address 'https://api.widgetic.com' for the calls of the 'Public Embed' tag.
 **Signed context.** A partner that wants to trust 'context' (to bill a customer by it, say) makes a signing secret ('rotatePartnerEntryContextSecret'), and its server signs the context it hands to the embed. The signature travels inside 'context' as two reserved keys, 'widgetic_exp' (UTC seconds, at most seven days ahead) and 'widgetic_sig'. The gateway checks them after the 'Origin' and before anything else is judged, stored or announced, and keeps and announces the context WITHOUT them. A context that is not signed as the partner requires is refused with 403 'CONTEXT_SIGNATURE_REQUIRED', 'CONTEXT_SIGNATURE_INVALID' or 'CONTEXT_SIGNATURE_EXPIRED'; when the check cannot be made just now the answer is a retryable 503 'CONTEXT_SIGNATURE_UNAVAILABLE', never an unchecked entry. Until a partner makes a secret nothing changes: the two keys are dropped and the rest is taken as it came. A signature is good until its 'widgetic_exp' and may be used again until then, so a partner that must count each submission once keeps a unique value of its own (a 'submissionId', say) in the context. The recipe and a test vector are in the description of 'rotatePartnerEntryContextSecret'.
 
 ### Example
 
 ```bash
-client.sh createPublicCompositionEntry compositionId=value table=value X-Widgetic-Write-Token:value
+client.sh createPublicCompositionEntry compositionId=value table=value X-Widgetic-Write-Token:value X-Widgetic-Visitor-Id:value
 ```
 
 ### Parameters
@@ -887,6 +1179,7 @@ Name | Type | Description  | Notes
  **table** | **string** |  | [default to null]
  **publicCompositionEntryRequest** | [**PublicCompositionEntryRequest**](PublicCompositionEntryRequest.md) |  |
  **xWidgeticWriteToken** | **string** | Signed per-composition write token handed to the widget in 'widgetic:host' as 'entries.writeToken' (and returned by 'GET /embed/compositions/{compositionId}' as 'entryWriteToken'). Required when the request comes from the shared Widgetic artifact origin; verified whenever present. | [optional] [default to null]
+ **xWidgeticVisitorId** | **string** | A random id the widget's browser makes once and keeps (16 to 64 characters of 'A-Za-z0-9_-'), sent so a table's per-visitor 'limit' (declared in the widget database file) can count this browser. Not an identity and not a secret. Without it, or with a malformed value, the limit counts only by network address. | [optional] [default to null]
 
 ### Return type
 
@@ -1003,6 +1296,172 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## createWorkspaceWorkflow
+
+Create a Workflow
+
+Makes a draft workflow. Give it a composition and the workflow is born with one block, which starts it; without
+one it starts empty. A workspace holds up to 500 workflows.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can create one.
+
+### Example
+
+```bash
+client.sh createWorkspaceWorkflow workspaceId=value Idempotency-Key:value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
+ **createWorkspaceWorkflowRequest** | [**CreateWorkspaceWorkflowRequest**](CreateWorkspaceWorkflowRequest.md) |  |
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**CreateWorkspaceWorkflowFromPreset201Response**](CreateWorkspaceWorkflowFromPreset201Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## createWorkspaceWorkflowFromPreset
+
+Start a Workflow from a starting point
+
+Makes your own copy of a starting point ('listWorkspaceWorkflowPresets'): a copy of every widget it chains (an
+ordinary private widget that serves the starting point's published code), a composition of your own on each copy
+(a draft, with the content, design, embed settings and tables of the original), and a draft workflow wired like the
+starting point's live version. The workflow is named as you ask, or after the starting point. Nothing you do to the
+copy reaches the starting point, and nothing its offerer changes afterwards reaches your copy. The workflow stays a
+draft: publish it when it is ready.
+
+A start takes a few seconds, because each widget is copied. Send an 'Idempotency-Key' so that asking again after
+a timeout makes one copy. When a start fails (503 with 'details.reason' 'preset_copy_failed') the compositions it
+made are removed again, so asking again is safe; the widget copies it made stay in the workspace as ordinary
+widgets. The workspace's limit of workflows is checked before anything is copied.
+
+A starting point that is not offered to you, or that can no longer be started, is 404.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can start one.
+
+### Example
+
+```bash
+client.sh createWorkspaceWorkflowFromPreset workspaceId=value Idempotency-Key:value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
+ **createWorkspaceWorkflowFromPresetRequest** | [**CreateWorkspaceWorkflowFromPresetRequest**](CreateWorkspaceWorkflowFromPresetRequest.md) |  |
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**CreateWorkspaceWorkflowFromPreset201Response**](CreateWorkspaceWorkflowFromPreset201Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## deleteBrandKit
+
+Reset the Brand Kit to the default
+
+### Example
+
+```bash
+client.sh deleteBrandKit  organizationId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **string** |  | [optional] [default to null]
+
+### Return type
+
+[**BrandKitViewResponse**](BrandKitViewResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## deleteBrandKitAsset
+
+Remove a font or icon from the Brand Kit
+
+### Example
+
+```bash
+client.sh deleteBrandKitAsset assetId=value  organizationId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **assetId** | **string** |  | [default to null]
+ **organizationId** | **string** |  | [optional] [default to null]
+
+### Return type
+
+[**BrandKitViewResponse**](BrandKitViewResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## deleteCanvas
 
 Delete Canvas
@@ -1060,8 +1519,8 @@ client.sh deleteComposition id=value X-Managed-User-Id:value X-Managed-User-Exte
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | The ID of the composition to delete | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1099,8 +1558,8 @@ Name | Type | Description  | Notes
  **itemId** | **string** |  | [default to null]
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
  **ifMatch** | **string** |  | [optional] [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1137,8 +1596,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** |  | [default to null]
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1176,8 +1635,8 @@ Name | Type | Description  | Notes
  **id** | **string** | ID of the composition | [default to null]
  **table** | **string** | Name of the database table | [default to null]
  **recordId** | **string** | ID of the record to delete | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1217,8 +1676,8 @@ Name | Type | Description  | Notes
  **ids** | **string** |  | [optional] [default to null]
  **context** | [**map[String, string]**](string.md) | Host context filters as 'context[key]=value' (max 5 keys, counting dotted 'context.key' too). Use 'column.<name>=value' for columns whose names collide with reserved parameters. | [optional] [default to null]
  **filter** | [**map[String, string]**](string.md) | Column filters as 'filter[columnName]=value' (same meaning as bare 'columnName=value' or 'column.columnName=value'; max 10 column filters counting all spellings). A plain 'filter=value' still filters a column named 'filter'. | [optional] [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1343,6 +1802,51 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## deleteWorkspaceWorkflow
+
+Delete a Workflow
+
+Deletes a workflow, in whatever state it is in (draft, live, paused or archived), with all its versions and
+counts. It cannot be undone: archive the workflow instead to keep it. The compositions it chained are not
+touched, and a page whose embed still names the workflow shows the embed's first composition, as for a paused
+one. Asking for a workflow that is already gone is \"not found\".
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can delete.
+
+### Example
+
+```bash
+client.sh deleteWorkspaceWorkflow workspaceId=value workflowId=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**DeleteWorkspaceWorkflow200Response**](DeleteWorkspaceWorkflow200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## describeCompositionEntries
 
 Describe What a Composition Keeps
@@ -1369,8 +1873,8 @@ client.sh describeCompositionEntries id=value X-Managed-User-Id:value X-Managed-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | ID of the composition | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1383,6 +1887,50 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## discardWorkspaceWorkflowChanges
+
+Discard the Unpublished Changes of a Workflow
+
+Puts the draft back to the live version (its graph and its time zone). Only for a workflow that has been
+published; one that never was has no live version to go back to. Names the 'revision' the editor read.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can discard.
+
+### Example
+
+```bash
+client.sh discardWorkspaceWorkflowChanges workspaceId=value workflowId=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **publishWorkspaceWorkflowRequest** | [**PublishWorkspaceWorkflowRequest**](PublishWorkspaceWorkflowRequest.md) |  |
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**CreateWorkspaceWorkflowFromPreset201Response**](CreateWorkspaceWorkflowFromPreset201Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1415,8 +1963,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | ID of the composition to duplicate | [default to null]
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
  **duplicateCompositionRequest** | [**DuplicateCompositionRequest**](DuplicateCompositionRequest.md) |  | [optional]
 
 ### Return type
@@ -1430,6 +1978,49 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## duplicateWorkspaceWorkflow
+
+Duplicate a Workflow
+
+Makes a draft copy of a workflow (its draft graph, not its versions or counts), named \"<name> (copy)\".
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can duplicate.
+
+### Example
+
+```bash
+client.sh duplicateWorkspaceWorkflow workspaceId=value workflowId=value Idempotency-Key:value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**CreateWorkspaceWorkflowFromPreset201Response**](CreateWorkspaceWorkflowFromPreset201Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1468,8 +2059,8 @@ returned), so 'since=A&until=B' followed by 'since=B&until=C' counts every entry
 refusals as 'since' (400 'INVALID_UNTIL'). | [optional] [default to null]
  **context** | [**map[String, string]**](string.md) | Host context filters as 'context[key]=value' (max 5 keys, counting dotted 'context.key' too). Use 'column.<name>=value' for columns whose names collide with reserved parameters. | [optional] [default to null]
  **filter** | [**map[String, string]**](string.md) | Column filters as 'filter[columnName]=value' (same meaning as bare 'columnName=value' or 'column.columnName=value'; max 10 column filters counting all spellings). A plain 'filter=value' still filters a column named 'filter'. | [optional] [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1516,8 +2107,8 @@ client.sh getAiAnswersKnowledge id=value X-Managed-User-Id:value X-Managed-User-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | The widget (composition) whose documents to list | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1621,8 +2212,8 @@ Default: 'createdAt:desc'. Any other field is a 400. | [optional] [default to nu
  **status** | **string** | Only the compositions in this status. Without it, every status is listed. | [optional] [default to null]
  **managedUserId** | **string** | List only the compositions made for this managed user (Widgetic's id for the user). Send this or 'managedUserExternalId', not both. Send it as 'managedUserId'; the snake_case spelling 'managed_user_id' is refused with a 400, not ignored. | [optional] [default to null]
  **managedUserExternalId** | **string** | List only the compositions made for the managed user you registered with this 'externalId' (your own identifier for the user). Send this or 'managedUserId', not both. | [optional] [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1664,6 +2255,41 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetAllManagedUsers200Response**](GetAllManagedUsers200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## getBrandKit
+
+The Brand Kit of the current workspace
+
+The colors, fonts, icons, corner radius and style notes every widget made by this account is generated with. An account that never saved a kit gets Widgetic's default one ('isDefault' is true). A partner account's kit is the default for everything its keys create, and a key reads and changes the kit of the account it belongs to; there is no kit per managed user.
+
+### Example
+
+```bash
+client.sh getBrandKit  organizationId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **string** | An organisation's kit; omit for the caller's current workspace. | [optional] [default to null]
+
+### Return type
+
+[**BrandKitViewResponse**](BrandKitViewResponse.md)
 
 ### Authorization
 
@@ -1721,9 +2347,17 @@ Retrieves a specific composition by its ID.
 The answer carries 'direct', which says whether the widget the composition is made from is drawn straight
 into your page ('true') or inside a frame ('false'), or 'null' while the widget has no published version.
 Read it before you go live: a widget drawn without a frame writes its entries from your own page, so the
-public entry route accepts them only from a website on the composition's allowed list, and refuses them while
-that list is empty (the public JSON of the composition stays open to every website). A widget in a frame
-writes from Widgetic's own frame and is accepted whatever the list says.
+public entry route looks at the website that page is on. While the composition's allowed list is empty (you
+have not restricted the allowed websites), every website may write; once you list websites, only those may,
+besides Widgetic's own sites, the visitor's own machine and your own platform. A widget in a frame writes from
+Widgetic's own frame and is accepted whatever the list says. The public JSON of the composition stays open to
+every website.
+
+For a composition a team shares (one filed under a project of an organization, or made in a Shopify store's
+workspace) the answer also carries 'lastEditedBy' and 'lastEditedAt': who made the latest change and when, so
+that a teammate who opens it can be told \"Anna changed this at 14:32\". A composition in a personal project
+leaves both out, and so does an answer given to an editor session or to a call made for one managed user: only
+a person is told who a teammate is.
 
 ### Example
 
@@ -1737,8 +2371,8 @@ client.sh getCompositionById id=value X-Managed-User-Id:value X-Managed-User-Ext
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | Composition ID | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1774,8 +2408,8 @@ client.sh getCompositionContent id=value X-Managed-User-Id:value X-Managed-User-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | ID of the composition | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1811,8 +2445,8 @@ client.sh getCompositionContentSchema id=value X-Managed-User-Id:value X-Managed
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | ID of the composition | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1848,8 +2482,8 @@ client.sh getCompositionDataSource id=value X-Managed-User-Id:value X-Managed-Us
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** |  | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1887,8 +2521,8 @@ Name | Type | Description  | Notes
  **id** | **string** | ID of the composition | [default to null]
  **table** | **string** | Name of the database table | [default to null]
  **recordId** | **string** | ID of the record to retrieve | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1925,8 +2559,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | ID of the composition | [default to null]
  **table** | **string** | Name of the database table | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1962,8 +2596,8 @@ client.sh getCompositionDesign id=value X-Managed-User-Id:value X-Managed-User-E
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | ID of the composition | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -1999,8 +2633,8 @@ client.sh getCompositionDesignSchema id=value X-Managed-User-Id:value X-Managed-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | ID of the composition | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -2058,8 +2692,8 @@ client.sh getCompositionEmbedSchema id=value X-Managed-User-Id:value X-Managed-U
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | ID of the composition | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -2095,8 +2729,8 @@ client.sh getCompositionEmbedSettings id=value X-Managed-User-Id:value X-Managed
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | ID of the composition | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -2142,8 +2776,8 @@ client.sh getCompositionPreview id=value X-Managed-User-Id:value X-Managed-User-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | ID of the composition | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -2179,8 +2813,8 @@ client.sh getCompositionVersions id=value X-Managed-User-Id:value X-Managed-User
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | Composition ID | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -3398,6 +4032,119 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## getPublicWorkflow
+
+Read the published Workflow of an embed
+
+Public read of a workflow for the embed that carries 'workflow-id'. No API key. The answer is the live version (its graph, the composition a new visitor starts on, the time zone, the languages its compositions can be shown in, and the token that lets the browser report counts), or 'status: paused' with nothing else, in which case the embed shows only its first composition. A workflow that is a draft, archived or unknown answers 404, and the embed then behaves as a plain embed of its 'composition-id'. So does a workflow whose owner is not being served (a plan that lapsed, a partner whose agreement is not in force): the answer is the one the compositions of that owner give.
+**Address.** 'https://api.widgetic.com/embed/workflows/{workflowId}': the root of the API host, NOT under '/v1'. A client generated from this description for 'https://api.widgetic.com/v1' must be given the base address 'https://api.widgetic.com' for the calls of the 'Public Embed' tag.
+The answer may be reused for a few seconds ('Cache-Control: public, max-age=15'), so a publish or a pause reaches visitors within moments. The graph is readable by anyone who has the workflow's id: its rules run in the visitor's browser, so a rule must never hold a secret.
+
+### Example
+
+```bash
+client.sh getPublicWorkflow workflowId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workflowId** | **string** |  | [default to null]
+
+### Return type
+
+[**GetPublicWorkflow200Response**](GetPublicWorkflow200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## getPublicWorkflowFrame
+
+Show a published Workflow in a page of its own
+
+A page that runs a published workflow, for a place that can only be given an address or an iframe: a chat messenger, a link page, a site builder, a blog that follows oEmbed. No API key, no SDK to add. The page holds the Embed SDK and the same tag a website carries ('<widgetic workflow-id composition-id>'), so a visitor moves from one composition to the next in place, by the same rules, exactly as on a website. A paused workflow shows its first composition alone, as its embeds do.
+**What the frame can count.** Only what happens inside it: entries, a widget's goals and actions, and waits. The page events a website can send to a workflow ('widgetic:workflow-event') are events of the page around the embed, and they do not cross an iframe, so a connection that waits for one never fires from a frame.
+A workflow that is a draft, is archived, or does not exist, and one whose owner is not being served, answers 404 with a short page that gives no reason. If the owner of the workflow's first composition listed the websites it may appear on, the page is sent with 'Content-Security-Policy: frame-ancestors' naming those websites (and Widgetic's own), so a browser refuses to show it inside any other website. Opening the address directly still works. An owner who listed nothing is not restricted.
+The page links its oEmbed card, so a site that follows oEmbed turns the address of the frame into an embed.
+**Address.** 'https://api.widgetic.com/embed/workflows/{workflowId}/frame': the root of the API host, NOT under '/v1'. A client generated from this description for 'https://api.widgetic.com/v1' must be given the base address 'https://api.widgetic.com' for the calls of the 'Public Embed' tag.
+
+### Example
+
+```bash
+client.sh getPublicWorkflowFrame workflowId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workflowId** | **string** |  | [default to null]
+
+### Return type
+
+**string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: text/html, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## getPublicWorkflowVersion
+
+Read one published version of a Workflow
+
+Public read of one version of a workflow, for a visitor who started on it before a newer one was published: they finish on the version they started on (for up to 30 days; after that they get the latest). The graph of a version never changes once published; the languages its compositions can be shown in ('translations') are read each time, as for the live version. Like the read of the live version, it answers 'status: paused' with nothing else while the workflow is paused, and 404 when the workflow is a draft or archived, or has no such version.
+**Address.** 'https://api.widgetic.com/embed/workflows/{workflowId}/versions/{versionId}': the root of the API host, NOT under '/v1'. A client generated from this description for 'https://api.widgetic.com/v1' must be given the base address 'https://api.widgetic.com' for the calls of the 'Public Embed' tag.
+
+### Example
+
+```bash
+client.sh getPublicWorkflowVersion workflowId=value versionId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workflowId** | **string** |  | [default to null]
+ **versionId** | **string** |  | [default to null]
+
+### Return type
+
+[**GetPublicWorkflow200Response**](GetPublicWorkflow200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## getUserAdapterConnections
 
 See which adapter keys an account has connected
@@ -3691,6 +4438,138 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## getWorkspaceWorkflow
+
+Get a Workflow
+
+Reads a workflow with its draft graph and the version that is live.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can read it.
+
+### Example
+
+```bash
+client.sh getWorkspaceWorkflow workspaceId=value workflowId=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**CreateWorkspaceWorkflowFromPreset201Response**](CreateWorkspaceWorkflowFromPreset201Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## getWorkspaceWorkflowStats
+
+Get what Visitors Did in a Workflow
+
+Counts per block and per connection over a range of UTC days (the last 30 days when not given, up to 366), for one
+version or for all of them. Only counts: how many visitors reached a block, took a connection, or could not be
+moved on. No visitor and no value a visitor typed is ever stored.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can read.
+
+### Example
+
+```bash
+client.sh getWorkspaceWorkflowStats workspaceId=value workflowId=value  versionId=value  from=value  to=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **versionId** | **string** | Count one version only | [optional] [default to null]
+ **from** | **string** | First UTC day (YYYY-MM-DD) | [optional] [default to null]
+ **to** | **string** | Last UTC day (YYYY-MM-DD) | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**GetWorkspaceWorkflowStats200Response**](GetWorkspaceWorkflowStats200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## getWorkspaceWorkflowVersion
+
+Get a Published Version of a Workflow
+
+One published version with its graph, for the read-only preview and for the Runs view.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can read.
+
+### Example
+
+```bash
+client.sh getWorkspaceWorkflowVersion workspaceId=value workflowId=value versionId=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **versionId** | **string** | The id of a published version of the workflow | [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**GetWorkspaceWorkflowVersion200Response**](GetWorkspaceWorkflowVersion200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## listCompositionEntryItems
 
 List composition entry items with paging and filters
@@ -3725,8 +4604,8 @@ refusals as 'since' (400 'INVALID_UNTIL'). | [optional] [default to null]
  **cursor** | **string** |  | [optional] [default to null]
  **context** | [**map[String, string]**](string.md) | Host context filters as 'context[key]=value' (max 5 keys, counting dotted 'context.key' too). Use 'column.<name>=value' for columns whose names collide with reserved parameters. | [optional] [default to null]
  **filter** | [**map[String, string]**](string.md) | Column filters as 'filter[columnName]=value' (same meaning as bare 'columnName=value' or 'column.columnName=value'; max 10 column filters counting all spellings). A plain 'filter=value' still filters a column named 'filter'. | [optional] [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -3937,6 +4816,244 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## listPartnerWorkflowPresets
+
+List the workflows a partner offers as places to start
+
+The partner's starting points, ordered by 'position' and then by 'key': the published workflows it offers its managed
+users when they make a new workflow. Each says whether people can start from it now and, when they cannot, why. The
+list is the same for every managed user, and a managed user is shown only what is available.
+
+A starting point is one of the partner account's own published workflows, built from compositions the account made
+for itself (not for a customer or a team) and from widgets the partner already offers as presets
+('setPartnerPreset'), and it uses at most 10 widgets. A partner offers up to 50.
+
+The caller must be the person who administers the partner (an API key of that account works), or a Widgetic
+administrator.
+
+### Example
+
+```bash
+client.sh listPartnerWorkflowPresets partnerId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **partnerId** | **string** | The partner whose starting points to list | [default to null]
+
+### Return type
+
+[**ListPartnerWorkflowPresets200Response**](ListPartnerWorkflowPresets200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## listWorkspaceWorkflowCompositionOptions
+
+List the compositions a workflow can show, and what each can do
+
+The workspace's compositions as the workflow editor offers them, newest first. For each one: whether it can be
+shown (its widget has a published version), the websites it may be embedded on, and which triggers it supports.
+
+- **Input added** ('inputs') is enabled only for a composition that declares at least one table a visitor's
+  entries can be written to. Its 'tables' are all of them; its 'fields' are the columns a rule may read (not
+  'id' and 'created_at', not a column that is not text, a number or yes/no, and not one whose name says it holds
+  a person's private details, such as an email or a phone number).
+- **Action in the widget** ('actions') is enabled only when the published widget version declares at least one
+  goal. Its 'items' are the goals a trigger can wait for.
+
+When one of them is not enabled, 'reason' says why ('widget_keeps_no_data', 'widget_reports_no_actions' or
+'widget_not_published'), so the editor can show the trigger disabled with an explanation. Publishing checks every
+reference again against what the composition can do at that moment.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can read it.
+
+### Example
+
+```bash
+client.sh listWorkspaceWorkflowCompositionOptions workspaceId=value  search=value  ids=value  limit=value  offset=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **search** | **string** | Text the composition's name must contain | [optional] [default to null]
+ **ids** | **string** | Only these compositions (comma-separated ids, at most 50), those of them you may see. Ask for the
+compositions a workflow shows with this, so each is found whatever page it would be on. An id you may not
+see is left out, as one that does not exist is. | [optional] [default to null]
+ **limit** | **integer** | Page size (1-100, 50 when not given) | [optional] [default to null]
+ **offset** | **integer** | How many to skip (0 when not given) | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**ListWorkspaceWorkflowCompositionOptions200Response**](ListWorkspaceWorkflowCompositionOptions200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## listWorkspaceWorkflowPresets
+
+List the starting points for a new Workflow
+
+The workflows you can start from in this workspace: published workflows that Widgetic offers or, for one of a
+partner's managed users, that the partner offers (a managed user is never shown Widgetic's, and a person is never
+shown a partner's). Only what can be started now is listed, in the order the offerer set (smallest 'position'
+first, then by 'key'). Each shows what you would get, and none shows who made it or any id of its own.
+Start from one with 'createWorkspaceWorkflowFromPreset'.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can read the list.
+
+### Example
+
+```bash
+client.sh listWorkspaceWorkflowPresets workspaceId=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**ListWorkspaceWorkflowPresets200Response**](ListWorkspaceWorkflowPresets200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## listWorkspaceWorkflowVersions
+
+List the Published Versions of a Workflow
+
+Every version the workflow has had, newest first, with who published it and when. The one visitors get is marked
+'isLive'.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can read.
+
+### Example
+
+```bash
+client.sh listWorkspaceWorkflowVersions workspaceId=value workflowId=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**ListWorkspaceWorkflowVersions200Response**](ListWorkspaceWorkflowVersions200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## listWorkspaceWorkflows
+
+List the Workflows of a Workspace
+
+Lists the workspace's workflows, newest first unless 'sort' says otherwise. Archived workflows are left out
+unless 'status' asks for them ('archived', or 'all').
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can read the list.
+
+### Example
+
+```bash
+client.sh listWorkspaceWorkflows workspaceId=value  search=value  status=value  sort=value  limit=value  offset=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **search** | **string** | Text the workflow's name must contain | [optional] [default to null]
+ **status** | **string** | One state to list ('draft', 'live', 'paused', 'archived'), or 'all' for every state. Without it, the ones in use (draft, live and paused). | [optional] [default to null]
+ **sort** | **string** | '<field>:<asc|desc>' where field is createdAt, lastPublishedAt, runsCount or name (or just asc / desc for createdAt). Newest first when not given. | [optional] [default to null]
+ **limit** | **integer** | Page size (1-100, 50 when not given) | [optional] [default to null]
+ **offset** | **integer** | How many to skip (0 when not given) | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**ListWorkspaceWorkflows200Response**](ListWorkspaceWorkflows200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## operationsIdGet
 
 Get operation status
@@ -3978,6 +5095,77 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## patchBrandKit
+
+Change part of the Brand Kit
+
+Changes only what is sent: the colors, a font role, a spacing step, one corner radius (0 for square corners) or the style notes, and keeps the rest of the saved kit. An account that never saved a kit starts from Widgetic's default one. The response lists what is worth fixing in 'warnings'.
+
+### Example
+
+```bash
+client.sh patchBrandKit  organizationId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patchBrandKitRequest** | [**PatchBrandKitRequest**](PatchBrandKitRequest.md) |  |
+ **organizationId** | **string** |  | [optional] [default to null]
+
+### Return type
+
+[**BrandKitViewResponse**](BrandKitViewResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patchBrandKitAsset
+
+Rename an icon or relabel a font variant
+
+### Example
+
+```bash
+client.sh patchBrandKitAsset assetId=value  organizationId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **assetId** | **string** |  | [default to null]
+ **patchBrandKitAssetRequest** | [**PatchBrandKitAssetRequest**](PatchBrandKitAssetRequest.md) |  |
+ **organizationId** | **string** |  | [optional] [default to null]
+
+### Return type
+
+[**BrandKitViewResponse**](BrandKitViewResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## patchCompositionContentItem
 
 Update a content list item
@@ -3999,12 +5187,127 @@ Name | Type | Description  | Notes
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
  **requestBody** | [**map[String, AnyType]**](AnyType.md) |  |
  **ifMatch** | **string** |  | [optional] [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
 [**CreateCompositionContentItem201Response**](CreateCompositionContentItem201Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## pauseWorkspaceWorkflow
+
+Pause a Workflow
+
+While a workflow is paused, its embeds show only their first composition (the 'composition-id' of the embed) and no
+visitor moves on. The live version is kept, and visitors partway through carry on from where they were when it is
+resumed. Only a live workflow can be paused.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can pause.
+
+### Example
+
+```bash
+client.sh pauseWorkspaceWorkflow workspaceId=value workflowId=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**SaveWorkspaceWorkflow200Response**](SaveWorkspaceWorkflow200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## postBrandKitFont
+
+Upload a font file to the Brand Kit
+
+### Example
+
+```bash
+client.sh postBrandKitFont  organizationId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **binary** |  | [default to null]
+ **family** | **string** |  | [default to null]
+ **weight** | **integer** |  | [default to null]
+ **organizationId** | **string** |  | [optional] [default to null]
+ **style** | **string** |  | [optional] [default to null]
+
+### Return type
+
+[**BrandKitViewResponse**](BrandKitViewResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## postBrandKitIcon
+
+Add a named SVG icon to the Brand Kit
+
+### Example
+
+```bash
+client.sh postBrandKitIcon  organizationId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postBrandKitIconRequest** | [**PostBrandKitIconRequest**](PostBrandKitIconRequest.md) |  |
+ **organizationId** | **string** |  | [optional] [default to null]
+
+### Return type
+
+[**BrandKitViewResponse**](BrandKitViewResponse.md)
 
 ### Authorization
 
@@ -4046,6 +5349,94 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## publishWorkspaceWorkflow
+
+Publish the Draft of a Workflow
+
+Checks the draft and, when nothing stops it, makes it the next version and the one new visitors get. Versions never
+change once published. A visitor already partway through keeps the version they started on (for up to 30 days).
+The check reads what each composition can do right now (a table the visitor adds to, a goal the widget reports,
+the websites it may be embedded on), so a workflow never goes live pointing at something that has gone.
+It is refused with 422 ('BUSINESS_OPERATION_INVALID') when the draft has errors; the 'issues' in the error's
+'details' name the blocks to fix: an unconnected trigger, a condition without rules, a composition that is not
+published, a field or action that is gone, a composition whose allowed websites exclude the site the workflow
+starts on. Nothing is published when the draft has no changes since the live version.
+The 'revision' is the one the editor read, and a publish of a draft that has moved on is refused with 409.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can publish.
+
+### Example
+
+```bash
+client.sh publishWorkspaceWorkflow workspaceId=value workflowId=value Idempotency-Key:value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
+ **publishWorkspaceWorkflowRequest** | [**PublishWorkspaceWorkflowRequest**](PublishWorkspaceWorkflowRequest.md) |  |
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**PublishWorkspaceWorkflow200Response**](PublishWorkspaceWorkflow200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## putBrandKit
+
+Save Brand Kit tokens
+
+Replaces the colors, fonts, spacing and notes of the kit with the ones sent. To change one thing, use PATCH.
+
+### Example
+
+```bash
+client.sh putBrandKit  organizationId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **putBrandKitRequest** | [**PutBrandKitRequest**](PutBrandKitRequest.md) |  |
+ **organizationId** | **string** |  | [optional] [default to null]
+
+### Return type
+
+[**BrandKitViewResponse**](BrandKitViewResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
 
 ### HTTP request headers
 
@@ -4123,8 +5514,8 @@ returned), so 'since=A&until=B' followed by 'since=B&until=C' counts every entry
 refusals as 'since' (400 'INVALID_UNTIL'). | [optional] [default to null]
  **context** | [**map[String, string]**](string.md) | Host context filters as 'context[key]=value' (max 5 keys, counting dotted 'context.key' too). Use 'column.<name>=value' for columns whose names collide with reserved parameters. | [optional] [default to null]
  **filter** | [**map[String, string]**](string.md) | Column filters as 'filter[columnName]=value' (same meaning as bare 'columnName=value' or 'column.columnName=value'; max 10 column filters counting all spellings). A plain 'filter=value' still filters a column named 'filter'. | [optional] [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -4164,8 +5555,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** | The widget (composition) the document is in | [default to null]
  **documentId** | **string** | The document to remove | [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -4357,6 +5748,45 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## removePartnerWorkflowPreset
+
+Stop offering a workflow as a place to start
+
+Removes the starting point under 'key'. The workflow itself is not touched, and neither are the workflows people
+already started from it.
+
+Removing a starting point the partner does not offer is not an error: the answer is 'removed: false'.
+
+### Example
+
+```bash
+client.sh removePartnerWorkflowPreset partnerId=value key=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **partnerId** | **string** | The partner whose starting point to remove | [default to null]
+ **key** | **string** | The key of the starting point to remove | [default to null]
+
+### Return type
+
+[**RemovePartnerWorkflowPreset200Response**](RemovePartnerWorkflowPreset200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## removeUserAdapterConnection
 
 Remove an adapter key from an account
@@ -4432,6 +5862,132 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PartnerNotificationDeliveryResponse**](PartnerNotificationDeliveryResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## reportPublicWorkflowEvents
+
+Report what visitors did in a Workflow, as counts
+
+Public report of counts for a workflow, sent by the embed. No API key. Each event is one id and a number: a visitor reached a block ('n'), took a connection ('e'), or could not be moved on ('f'). Nothing else is kept: no visitor, no value a visitor typed, no address. A batch carries at most 100 events and 16 KB. The same report may carry 'heights': how tall a step settled at in the browser, which the embed code of the workflow uses to start its box at a real height (a composition, a whole number of pixels, nothing about the visitor).
+A report is accepted only with the 'token' the workflow's own read handed out for that 'versionId', so a page that never read the workflow cannot raise its numbers. An expired token ('EVENT_TOKEN_EXPIRED') is refused with 401: read the workflow again for a new one. Counts for ids that are not in that version, or for a workflow that is not live, are not recorded and the answer says so ('recorded: false') with 200: the visitor's page has nothing to fix.
+The body is JSON, sent as 'application/json' or as 'text/plain' (a \"simple\" cross-origin request, which is what lets a report leave a page that is being closed).
+**Address.** 'https://api.widgetic.com/embed/workflows/{workflowId}/events': the root of the API host, NOT under '/v1'. A client generated from this description for 'https://api.widgetic.com/v1' must be given the base address 'https://api.widgetic.com' for the calls of the 'Public Embed' tag.
+
+### Example
+
+```bash
+client.sh reportPublicWorkflowEvents workflowId=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workflowId** | **string** |  | [default to null]
+ **publicWorkflowEventsRequest** | [**PublicWorkflowEventsRequest**](PublicWorkflowEventsRequest.md) |  |
+
+### Return type
+
+[**ReportPublicWorkflowEvents200Response**](ReportPublicWorkflowEvents200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/plain
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## restoreWorkspaceWorkflowVersion
+
+Restore a Version of a Workflow into the Draft
+
+Copies a published version into the draft, so it can be changed and published again. Nothing is published and
+nothing visitors see changes: the version stays in the history as it was. Names the 'revision' the editor read.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can restore.
+
+### Example
+
+```bash
+client.sh restoreWorkspaceWorkflowVersion workspaceId=value workflowId=value versionId=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **versionId** | **string** | The id of a published version of the workflow | [default to null]
+ **publishWorkspaceWorkflowRequest** | [**PublishWorkspaceWorkflowRequest**](PublishWorkspaceWorkflowRequest.md) |  |
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**CreateWorkspaceWorkflowFromPreset201Response**](CreateWorkspaceWorkflowFromPreset201Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## resumeWorkspaceWorkflow
+
+Resume a Paused Workflow
+
+Makes a paused workflow live again, on the version that was live when it was paused.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can resume.
+
+### Example
+
+```bash
+client.sh resumeWorkspaceWorkflow workspaceId=value workflowId=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**SaveWorkspaceWorkflow200Response**](SaveWorkspaceWorkflow200Response.md)
 
 ### Authorization
 
@@ -4656,6 +6212,56 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## saveWorkspaceWorkflow
+
+Save the Draft of a Workflow
+
+Saves the name, the time zone and/or the graph of the draft. Send at least one. The save names the 'revision' the
+editor started from and is refused with 409 ('BUSINESS_STATE_CONFLICT') when the draft has moved on, so two
+people editing do not overwrite each other without knowing; read the workflow again and apply the change to it.
+A save is never refused for what is wrong with the graph (a block with no connection yet is normal in a draft):
+only the shape is judged here, and what stops a workflow going live is told when it is published. A graph larger
+than 200,000 bytes, or with more than 100 blocks or 300 connections, is refused.
+An archived workflow cannot be saved. Saving a live workflow changes the draft only: visitors keep getting the
+published version until the changes are published.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can save.
+
+### Example
+
+```bash
+client.sh saveWorkspaceWorkflow workspaceId=value workflowId=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **saveWorkspaceWorkflowRequest** | [**SaveWorkspaceWorkflowRequest**](SaveWorkspaceWorkflowRequest.md) |  |
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**SaveWorkspaceWorkflow200Response**](SaveWorkspaceWorkflow200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## sendPartnerNotificationTestEvent
 
 Send a test event to your webhook
@@ -4734,8 +6340,8 @@ Name | Type | Description  | Notes
  **id** | **string** |  | [default to null]
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
  **setCompositionDataSourceRequest** | [**SetCompositionDataSourceRequest**](SetCompositionDataSourceRequest.md) |  |
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -4778,8 +6384,8 @@ Name | Type | Description  | Notes
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
  **setDynamicContentRequest** | [**SetDynamicContentRequest**](SetDynamicContentRequest.md) |  |
  **ifMatch** | **string** | Optional content version from ETag ('\"3\"', '3', or '*') | [optional] [default to null]
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -4889,8 +6495,15 @@ off, remove the key here, or revoke it with the provider.
 for an owner only) and that the text is one line of at most 2048 characters. Whether the provider accepts the
 key is not checked here: it shows the first time a widget uses it.
 
-A widget whose adapter has no key connected is not charged and does not run that adapter: its visitors are told
-the feature is unavailable, and the partner is told once a day what to connect.
+**An address that has to be confirmed.** Some credentials are not a key but the email address Widgetic sends a
+widget's messages to ('confirmation: email_code' in 'getPartnerAdapterConnections'). Saving one checks that it is
+one email address and emails a six-digit code to it; the answer says 'awaitingConfirmation: true', and nothing is
+sent to the address until the code is given back with 'confirmPartnerAdapterConnection'. Saving the same address
+again before it is confirmed emails a new code (not sooner than a minute after the last); saving the address that
+is already confirmed changes nothing. If the code cannot be emailed, nothing is saved.
+
+A widget whose adapter has no key connected, or whose address is not confirmed yet, is not charged and does not
+run that adapter: its visitors are told the feature is unavailable, and the partner is told once a day what to do.
 
 This needs an API key with full access. The caller must be the person who administers the partner, or a
 Widgetic administrator. A retry is harmless: saving the same key twice only refreshes when it was set.
@@ -5173,6 +6786,65 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## setPartnerWorkflowPreset
+
+Offer a workflow as a place to start, or replace what a key offers
+
+Offers one of the partner account's own published workflows to its managed users under 'key'. If the partner already
+offers something under that key it is replaced, so sending the same request twice is safe. Saving replaces the whole
+starting point: a 'title', 'description' or 'position' you leave out goes back to its default.
+
+Keys are 1 to 64 characters: lowercase letters, digits, hyphens and underscores, the first a letter or a digit.
+
+A workflow is offered once. What people get is the workflow's live version as it is when they start, so publishing
+the workflow changes what new starts get; workflows people already started are never touched. The offer is
+refused, and 'error.details.reason' says why, when the workflow:
+
+- is not the partner account's own (a workflow of a team or of a customer, or of somebody else), or does not exist:
+  404, the same for both;
+- is archived (409 'workflow_archived'), or was never published (409 'workflow_not_published');
+- shows no composition (422 'workflow_empty'), or a block shows a composition made for a customer or a team
+  (422 'composition_not_own');
+- chains more than 10 widgets (422 'too_many_widgets'), or a widget that the partner does not offer as a preset
+  (422 'widget_not_preset'; 'error.details.widgets' lists them, each with its 'id' and 'name', so they can be offered
+  first with 'setPartnerPreset');
+- is already offered under another key (409 'workflow_already_offered'; 'error.details.key' says which), or the
+  partner already offers 50 (409 'too_many_presets').
+
+The caller must be the person who administers the partner (an API key of that account works), or a Widgetic
+administrator, who offers the partner's workflow on its behalf.
+
+### Example
+
+```bash
+client.sh setPartnerWorkflowPreset partnerId=value key=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **partnerId** | **string** | The partner whose starting point to set | [default to null]
+ **key** | **string** | The name your code and the picker use for the starting point | [default to null]
+ **offerWorkflowPresetRequest** | [**OfferWorkflowPresetRequest**](OfferWorkflowPresetRequest.md) |  |
+
+### Return type
+
+[**SetPartnerWorkflowPreset200Response**](SetPartnerWorkflowPreset200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## setUserAdapterConnection
 
 Connect an adapter key to an account
@@ -5191,8 +6863,15 @@ revoke it with the provider.
 for a partner only) and that the text is one line of at most 2048 characters. Whether the provider accepts
 the key is not checked here: it shows the first time a widget uses it, and the widget tells its owner.
 
-A widget whose adapter has no key connected is not charged and does not run that adapter: its visitors are told
-the feature is unavailable, and the owner is told once a day what to connect.
+**An address that has to be confirmed.** Some credentials are not a key but the email address Widgetic sends a
+widget's messages to ('confirmation: email_code' in 'getUserAdapterConnections'). Saving one checks that it is one
+email address and emails a six-digit code to it; the answer says 'awaitingConfirmation: true', and nothing is sent
+to the address until the code is given back with 'confirmUserAdapterConnection'. Saving the same address again
+before it is confirmed emails a new code (not sooner than a minute after the last); saving the address that is
+already confirmed changes nothing. If the code cannot be emailed, nothing is saved.
+
+A widget whose adapter has no key connected, or whose address is not confirmed yet, is not charged and does not
+run that adapter: its visitors are told the feature is unavailable, and the owner is told once a day what to do.
 
 This needs an API key with full access. The caller must be the account itself or a Widgetic administrator. A
 retry is harmless: saving the same key twice only refreshes when it was set.
@@ -5224,6 +6903,49 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## unarchiveWorkspaceWorkflow
+
+Unarchive a Workflow
+
+Brings an archived workflow back into the list: as paused when it was ever published (resume it to serve visitors
+again), as a draft when it never was.
+For personal workspace, use 'personal' as workspaceId.
+For organization workspace, use the organization UUID as workspaceId. Any active member can unarchive.
+
+### Example
+
+```bash
+client.sh unarchiveWorkspaceWorkflow workspaceId=value workflowId=value X-Managed-User-Id:value X-Managed-User-External-Id:value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspaceId** | **string** | The workspace: 'personal' for your own workspace, or the UUID of an organization. A call made for one of your
+managed users ('X-Managed-User-Id') always uses 'personal': a managed user has no other workspace, and a call
+that names an organization is refused with 403. | [default to null]
+ **workflowId** | **string** | The workflow's id | [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+
+### Return type
+
+[**SaveWorkspaceWorkflow200Response**](SaveWorkspaceWorkflow200Response.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -5282,10 +7004,19 @@ the ones that exist are left as they are. A 'databaseSchema' that cannot be used
 is saved, with '400' and 'INVALID_DATABASE_SCHEMA'. If the composition is saved but its tables cannot be made
 just now, the answer is still '200' and 'meta.warnings' says so.
 
+**When several people edit the same composition.** A save that carries 'content' can name the content version
+it started from in the 'If-Match' header (the 'contentVersion' of the composition you read, or the 'ETag' of an
+earlier answer). If somebody saved the content since, nothing is overwritten: the save is refused with '412' and
+'CONTENT_VERSION_MISMATCH', and 'error.details.currentVersion' is the version to start again from. For a
+composition a team shares, 'error.details' also says who got there first: 'lastEditedBy'
+('{ id, name }', or 'null' when nobody can be named) and 'lastEditedAt'. An editor session, or a call made for
+one managed user, is told the version only. A save without 'If-Match' still goes through, and the other
+person's change is replaced, as it always was.
+
 ### Example
 
 ```bash
-client.sh updateComposition id=value Idempotency-Key:value X-Managed-User-Id:value X-Managed-User-External-Id:value
+client.sh updateComposition id=value Idempotency-Key:value If-Match:value X-Managed-User-Id:value X-Managed-User-External-Id:value
 ```
 
 ### Parameters
@@ -5296,8 +7027,9 @@ Name | Type | Description  | Notes
  **id** | **string** | Composition ID | [default to null]
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
  **updateComposition** | [**UpdateComposition**](UpdateComposition.md) |  |
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **ifMatch** | **string** | Optional content version from 'contentVersion' or an 'ETag' ('\"3\"', '3', or '*'). Read only when the body has 'content'. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -5337,8 +7069,8 @@ Name | Type | Description  | Notes
  **recordId** | **string** | ID of the record to update | [default to null]
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
  **body** | **map** |  |
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -5378,8 +7110,8 @@ Name | Type | Description  | Notes
  **id** | **string** | Composition ID | [default to null]
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
  **updateCompositionStatusRequest** | [**UpdateCompositionStatusRequest**](UpdateCompositionStatusRequest.md) |  |
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 
@@ -5636,8 +7368,9 @@ Send the file a visitor chose through the upload adapter of a published widget
 The second of the two calls the 'upload' adapter's module makes from the visitor's browser (the first, the 'begin-upload' operation of 'callPublicCompositionAdapter', answers with the ticket this route takes). The module sends the file itself, as the body, with its media type as the 'Content-Type'. It is not meant to be called by hand, and it takes no API key.
 **Address.** 'https://api.widgetic.com/embed/compositions/{compositionId}/adapters/upload/files/{ticket}': the root of the API host, NOT under '/v1'. A client generated from this description for 'https://api.widgetic.com/v1' must be given the base address 'https://api.widgetic.com' for the calls of the 'Public Embed' tag.
 **The ticket.** Single-use and valid for ten minutes, given for one file: its name, its media type and its exact size are what the visitor said when the ticket was asked for, after the widget's owner's settings (the kinds of file they take, the largest size) were applied. The 'Content-Type' and the 'Content-Length' of this request must be those, and the body must be exactly that many bytes (400 'UPLOAD_FILE_CHANGED' otherwise). The gateway never believes the type it was told: the first bytes of the file must be a file of that type and one the owner accepts (422 otherwise). A ticket whose file was stored and is sent again is answered with the same file, so a visitor whose connection dropped after the file landed does not store it twice; a ticket whose attempt failed is spent, and the module asks for a new one.
+**The virus check.** Before anything is stored, the file is checked for viruses, wherever it would be kept (Widgetic's storage or a partner's own bucket). A file that fails the check is refused with 422 'UPLOAD_FILE_UNSAFE' and nothing is stored. When the check cannot be done, nothing is stored either, and the answer is the same neutral 503 'UPLOAD_UNAVAILABLE' as for any other cause the visitor is not told. The ticket of a refused file is spent.
 **What it stores.** The file goes to the widget owner's storage: Widgetic's, or the partner's own bucket for a widget of a customer a partner manages. It counts against the owner's storage allowance and is filed in the folder the owner chose, as a file sent by a visitor, which the owner's own file list leaves out. A full allowance, a partner's storage that cannot be used and a stopped feature are all the same 503 'UPLOAD_UNAVAILABLE' to a visitor, and the owner is told through a notice.
-**Who may call.** The same rule as the entry route: a permitted 'Origin' header, which is the artifact origin the widget runs from or a website the owner allowed (or the owner's own platform). A request without a permitted 'Origin' is 403 'ORIGIN_NOT_ALLOWED'. A composition that is not served (unpublished, or its owner's plan does not serve it) is 404, with the codes of the other public embed routes.
+**Who may call.** The same rule as the entry route: a permitted 'Origin' header, which is the artifact origin the widget runs from or any website when the owner has not restricted the allowed websites (when the owner has, one of the websites the owner listed, Widgetic's own sites, the visitor's own machine or the owner's own platform). A request without a permitted 'Origin' is 403 'ORIGIN_NOT_ALLOWED'. A composition that is not served (unpublished, or its owner's plan does not serve it) is 404, with the codes of the other public embed routes.
 **Limits.** 30 requests a minute for each visitor address and composition and 240 a minute for a composition (429 'RATE_LIMITED', with a 'Retry-After' header); at most 10 MB for a file, and only so many files held in memory at once on each gateway process (503 'UPLOAD_BUSY', with a 'Retry-After'). A file that does not arrive within two minutes is 408 'UPLOAD_TIMEOUT'. Every answer but a success closes the connection, so a client that is refused before it has sent the file reads the answer and stops.
 
 ### Example
@@ -5926,8 +7659,8 @@ Name | Type | Description  | Notes
  **id** | **string** | ID of the composition | [default to null]
  **idempotencyKey** | **string** | Required: a call without it is refused with '400'. A key of your own that names this one request; a UUID is ideal. It is 8 to 50 characters of letters, digits, '-' and '_'. Send the same key again when you retry (after a timeout, a dropped connection or a '5xx') and the call is carried out once: the retry gets the first answer back, marked 'X-Idempotency-Cached: true'. The same key with a different body is refused with '422', and a retry that arrives while the first call is still running with '409' (see 'Retry-After'). | [default to null]
  **requestBody** | [**map[String, AnyType]**](AnyType.md) |  |
- **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
- **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions: a list shows only theirs, a composition the call makes is filed under them, and a composition of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserId** | **string** | The id Widgetic gave the managed user ('POST /managed-users'). Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
+ **xManagedUserExternalId** | **string** | Your own id for the managed user (its 'externalId'), when you do not keep Widgetic's. Makes this call for one of your managed users, so that a mistake in your own code cannot reach another customer's work. Send this header, or the other one, never both. Left out, the call works on your whole account, as it always has. With it, the call reaches only that user's compositions and workflows: a list shows only theirs, a composition or a workflow the call makes is filed under them, and one of another user, or one that does not exist, answers '404' (the same answer, so the call cannot be used to find out what another customer has). A managed user that is not yours answers '404' with 'MANAGED_USER_NOT_FOUND'. An empty, repeated or malformed header is '400' with 'MANAGED_USER_SCOPE_INVALID'; an empty header is never read as no header. A call that is about the whole account, such as the list of your managed users, is refused with '403' and 'MANAGED_USER_SCOPE_ROUTE_NOT_AVAILABLE': send it without the header. Only your API key can send it. The header is a limit the call asks for: whoever holds the key can leave it out, so for a credential that a customer's browser holds, use an editor session. An 'Idempotency-Key' is kept apart for each managed user. | [optional] [default to null]
 
 ### Return type
 

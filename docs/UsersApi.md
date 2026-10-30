@@ -5,6 +5,7 @@ All URIs are relative to */v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addPersonalWorkspaceDomain_0**](UsersApi.md#addPersonalWorkspaceDomain_0) | **POST** /users/{id}/workspace/domains | Allow a website to show your widgets
+[**confirmUserAdapterConnection_0**](UsersApi.md#confirmUserAdapterConnection_0) | **POST** /users/{userId}/adapter-connections/{adapterId}/{credentialKey}/confirm | Confirm an adapter address with the code that was emailed to it
 [**createUserApiKey_0**](UsersApi.md#createUserApiKey_0) | **POST** /users/{id}/keys | Create an API key
 [**deletePersonalWorkspaceDomain_0**](UsersApi.md#deletePersonalWorkspaceDomain_0) | **DELETE** /users/{id}/workspace/domains/{domainId} | Stop allowing a website to show your widgets
 [**deleteUserApiKey_0**](UsersApi.md#deleteUserApiKey_0) | **DELETE** /users/{id}/keys/{keyId} | Delete an API key
@@ -46,6 +47,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PersonalWorkspaceDomainResultResponse**](PersonalWorkspaceDomainResultResponse.md)
+
+### Authorization
+
+[apiKeyAuth](../README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## confirmUserAdapterConnection_0
+
+Confirm an adapter address with the code that was emailed to it
+
+Some credentials are an email address Widgetic sends a widget's messages to ('confirmation: email_code' in
+'getUserAdapterConnections'). Saving one with 'setUserAdapterConnection' emails a six-digit code to it; this gives
+the code back. Only then is the address used: until it is confirmed, the widgets that need it are not charged and
+their visitors are told the feature is unavailable.
+
+The code works for 30 minutes and for five wrong tries. After that, save the address again and a new code is
+emailed (not sooner than a minute after the last one). A code that is not made of digits is refused without
+counting as a try.
+
+Confirming an address that is already confirmed answers 200 with the same state, so a retry of a request that
+went through is harmless. Saving a different address, or the same one before it was confirmed, starts again.
+
+This needs an API key with full access. The caller must be the account itself or a Widgetic administrator.
+
+### Example
+
+```bash
+client.sh confirmUserAdapterConnection_0 userId=value adapterId=value credentialKey=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string** | The account that keeps the address. For your own, your own user id | [default to null]
+ **adapterId** | **string** | The adapter the address is for | [default to null]
+ **credentialKey** | **string** | The credential's name within the adapter | [default to null]
+ **confirmAdapterConnectionRequest** | [**ConfirmAdapterConnectionRequest**](ConfirmAdapterConnectionRequest.md) |  |
+
+### Return type
+
+[**SetUserAdapterConnection200Response**](SetUserAdapterConnection200Response.md)
 
 ### Authorization
 
@@ -389,8 +440,15 @@ revoke it with the provider.
 for a partner only) and that the text is one line of at most 2048 characters. Whether the provider accepts
 the key is not checked here: it shows the first time a widget uses it, and the widget tells its owner.
 
-A widget whose adapter has no key connected is not charged and does not run that adapter: its visitors are told
-the feature is unavailable, and the owner is told once a day what to connect.
+**An address that has to be confirmed.** Some credentials are not a key but the email address Widgetic sends a
+widget's messages to ('confirmation: email_code' in 'getUserAdapterConnections'). Saving one checks that it is one
+email address and emails a six-digit code to it; the answer says 'awaitingConfirmation: true', and nothing is sent
+to the address until the code is given back with 'confirmUserAdapterConnection'. Saving the same address again
+before it is confirmed emails a new code (not sooner than a minute after the last); saving the address that is
+already confirmed changes nothing. If the code cannot be emailed, nothing is saved.
+
+A widget whose adapter has no key connected, or whose address is not confirmed yet, is not charged and does not
+run that adapter: its visitors are told the feature is unavailable, and the owner is told once a day what to do.
 
 This needs an API key with full access. The caller must be the account itself or a Widgetic administrator. A
 retry is harmless: saving the same key twice only refreshes when it was set.

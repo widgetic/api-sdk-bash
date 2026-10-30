@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **projectId** | **string** |  | [optional] [default to null]
 **managedUserId** | **string** |  | [optional] [default to null]
 **direct** | **boolean** |  | [optional] [default to null]
+**lastEditedBy** | [**CompositionLastEditedBy**](CompositionLastEditedBy.md) |  | [optional] [default to null]
+**lastEditedAt** | **string** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

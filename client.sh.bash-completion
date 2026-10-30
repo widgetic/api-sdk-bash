@@ -69,12 +69,21 @@ _client.sh()
     # The list of available operation in the REST service
     # It's modelled as an associative array for efficient key lookup
     declare -A operations
+    operations["deleteBrandKitAsset_0"]=1
+    operations["deleteBrandKit_0"]=1
+    operations["getBrandKit_0"]=1
+    operations["patchBrandKitAsset_0"]=1
+    operations["patchBrandKit_0"]=1
+    operations["postBrandKitFont_0"]=1
+    operations["postBrandKitIcon_0"]=1
+    operations["putBrandKit_0"]=1
     operations["createCanvas_0"]=1
     operations["deleteCanvas_0"]=1
     operations["getAllCanvases_0"]=1
     operations["getCanvas_0"]=1
     operations["updateCanvas_0"]=1
     operations["addAiAnswersKnowledgeDocument_0"]=1
+    operations["addAiAnswersKnowledgeFile_0"]=1
     operations["checkCompositionAccess_0"]=1
     operations["createCompositionContentItem_0"]=1
     operations["createCompositionDatabaseRecord_0"]=1
@@ -133,9 +142,13 @@ _client.sh()
     operations["updateManagedUser_0"]=1
     operations["operationsIdGet_0"]=1
     operations["addAiAnswersKnowledgeDocument"]=1
+    operations["addAiAnswersKnowledgeFile"]=1
     operations["addPersonalWorkspaceDomain"]=1
+    operations["archiveWorkspaceWorkflow"]=1
     operations["callPublicCompositionAdapter"]=1
     operations["checkCompositionAccess"]=1
+    operations["confirmPartnerAdapterConnection"]=1
+    operations["confirmUserAdapterConnection"]=1
     operations["copyPresetForManagedUser"]=1
     operations["createCanvas"]=1
     operations["createComposition"]=1
@@ -149,6 +162,10 @@ _client.sh()
     operations["createPublicCompositionEntry"]=1
     operations["createUserApiKey"]=1
     operations["createWidget"]=1
+    operations["createWorkspaceWorkflow"]=1
+    operations["createWorkspaceWorkflowFromPreset"]=1
+    operations["deleteBrandKit"]=1
+    operations["deleteBrandKitAsset"]=1
     operations["deleteCanvas"]=1
     operations["deleteComposition"]=1
     operations["deleteCompositionContentItem"]=1
@@ -158,13 +175,17 @@ _client.sh()
     operations["deleteManagedUser"]=1
     operations["deletePersonalWorkspaceDomain"]=1
     operations["deleteUserApiKey"]=1
+    operations["deleteWorkspaceWorkflow"]=1
     operations["describeCompositionEntries"]=1
+    operations["discardWorkspaceWorkflowChanges"]=1
     operations["duplicateComposition"]=1
+    operations["duplicateWorkspaceWorkflow"]=1
     operations["exportCompositionEntryItems"]=1
     operations["getAiAnswersKnowledge"]=1
     operations["getAllCanvases"]=1
     operations["getAllCompositions"]=1
     operations["getAllManagedUsers"]=1
+    operations["getBrandKit"]=1
     operations["getCanvas"]=1
     operations["getCompositionById"]=1
     operations["getCompositionContent"]=1
@@ -207,6 +228,9 @@ _client.sh()
     operations["getPersonalWorkspaceDomains"]=1
     operations["getPublicCompositionEmbed"]=1
     operations["getPublicCompositionIframe"]=1
+    operations["getPublicWorkflow"]=1
+    operations["getPublicWorkflowFrame"]=1
+    operations["getPublicWorkflowVersion"]=1
     operations["getUserAdapterConnections"]=1
     operations["getUserApiKeyUsageLogs"]=1
     operations["getUserApiKeys"]=1
@@ -214,26 +238,46 @@ _client.sh()
     operations["getUserCreditTransactions"]=1
     operations["getWidgets"]=1
     operations["getWidgetsBatch"]=1
+    operations["getWorkspaceWorkflow"]=1
+    operations["getWorkspaceWorkflowStats"]=1
+    operations["getWorkspaceWorkflowVersion"]=1
     operations["listCompositionEntryItems"]=1
     operations["listManagedUserEntries"]=1
     operations["listPartnerNotificationDeliveries"]=1
     operations["listPartnerNotifications"]=1
     operations["listPartnerPresets"]=1
+    operations["listPartnerWorkflowPresets"]=1
+    operations["listWorkspaceWorkflowCompositionOptions"]=1
+    operations["listWorkspaceWorkflowPresets"]=1
+    operations["listWorkspaceWorkflowVersions"]=1
+    operations["listWorkspaceWorkflows"]=1
     operations["operationsIdGet"]=1
+    operations["patchBrandKit"]=1
+    operations["patchBrandKitAsset"]=1
     operations["patchCompositionContentItem"]=1
+    operations["pauseWorkspaceWorkflow"]=1
+    operations["postBrandKitFont"]=1
+    operations["postBrandKitIcon"]=1
     operations["postPublicCompositionEmbedStatus"]=1
+    operations["publishWorkspaceWorkflow"]=1
+    operations["putBrandKit"]=1
     operations["readCompositionEntries"]=1
     operations["removeAiAnswersKnowledgeDocument"]=1
     operations["removePartnerAdapterConnection"]=1
     operations["removePartnerDataDatabase"]=1
     operations["removePartnerPreset"]=1
     operations["removePartnerStorageDestination"]=1
+    operations["removePartnerWorkflowPreset"]=1
     operations["removeUserAdapterConnection"]=1
     operations["replayPartnerNotificationDelivery"]=1
+    operations["reportPublicWorkflowEvents"]=1
+    operations["restoreWorkspaceWorkflowVersion"]=1
+    operations["resumeWorkspaceWorkflow"]=1
     operations["revokeManagedUserEditorSession"]=1
     operations["revokeManagedUserEditorSessions"]=1
     operations["rotatePartnerEntryContextSecret"]=1
     operations["rotatePartnerWebhookSecret"]=1
+    operations["saveWorkspaceWorkflow"]=1
     operations["sendPartnerNotificationTestEvent"]=1
     operations["setCompositionDataSource"]=1
     operations["setDynamicContent"]=1
@@ -244,7 +288,9 @@ _client.sh()
     operations["setPartnerDesignDefaults"]=1
     operations["setPartnerPreset"]=1
     operations["setPartnerStorageDestination"]=1
+    operations["setPartnerWorkflowPreset"]=1
     operations["setUserAdapterConnection"]=1
+    operations["unarchiveWorkspaceWorkflow"]=1
     operations["updateCanvas"]=1
     operations["updateComposition"]=1
     operations["updateCompositionDatabaseRecord"]=1
@@ -264,6 +310,7 @@ _client.sh()
     operations["validateToken"]=1
     operations["verifyPartnerDataDatabase"]=1
     operations["verifyPartnerStorageDestination"]=1
+    operations["confirmPartnerAdapterConnection_0"]=1
     operations["createPartnerExtraCreditsInvoice_0"]=1
     operations["getMyPartners_0"]=1
     operations["getPartnerAdapterConnections_0"]=1
@@ -284,10 +331,12 @@ _client.sh()
     operations["listPartnerNotificationDeliveries_0"]=1
     operations["listPartnerNotifications_0"]=1
     operations["listPartnerPresets_0"]=1
+    operations["listPartnerWorkflowPresets_0"]=1
     operations["removePartnerAdapterConnection_0"]=1
     operations["removePartnerDataDatabase_0"]=1
     operations["removePartnerPreset_0"]=1
     operations["removePartnerStorageDestination_0"]=1
+    operations["removePartnerWorkflowPreset_0"]=1
     operations["replayPartnerNotificationDelivery_0"]=1
     operations["rotatePartnerEntryContextSecret_0"]=1
     operations["rotatePartnerWebhookSecret_0"]=1
@@ -297,6 +346,7 @@ _client.sh()
     operations["setPartnerDesignDefaults_0"]=1
     operations["setPartnerPreset_0"]=1
     operations["setPartnerStorageDestination_0"]=1
+    operations["setPartnerWorkflowPreset_0"]=1
     operations["updatePartnerEntryContextSigning_0"]=1
     operations["updatePartnerNotificationSettings_0"]=1
     operations["verifyPartnerDataDatabase_0"]=1
@@ -305,7 +355,11 @@ _client.sh()
     operations["createPublicCompositionEntry_0"]=1
     operations["getPublicCompositionEmbed_0"]=1
     operations["getPublicCompositionIframe_0"]=1
+    operations["getPublicWorkflowFrame_0"]=1
+    operations["getPublicWorkflowVersion_0"]=1
+    operations["getPublicWorkflow_0"]=1
     operations["postPublicCompositionEmbedStatus_0"]=1
+    operations["reportPublicWorkflowEvents_0"]=1
     operations["uploadPublicCompositionAdapterFile_0"]=1
     operations["validateToken_0"]=1
     operations["uploadsGet_0"]=1
@@ -314,6 +368,7 @@ _client.sh()
     operations["uploadsLimitsGet_0"]=1
     operations["uploadsPost_0"]=1
     operations["addPersonalWorkspaceDomain_0"]=1
+    operations["confirmUserAdapterConnection_0"]=1
     operations["createUserApiKey_0"]=1
     operations["deletePersonalWorkspaceDomain_0"]=1
     operations["deleteUserApiKey_0"]=1
@@ -329,16 +384,66 @@ _client.sh()
     operations["createWidget_0"]=1
     operations["getWidgetsBatch_0"]=1
     operations["getWidgets_0"]=1
+    operations["archiveWorkspaceWorkflow_0"]=1
+    operations["createWorkspaceWorkflowFromPreset_0"]=1
+    operations["createWorkspaceWorkflow_0"]=1
+    operations["deleteWorkspaceWorkflow_0"]=1
+    operations["discardWorkspaceWorkflowChanges_0"]=1
+    operations["duplicateWorkspaceWorkflow_0"]=1
+    operations["getWorkspaceWorkflowStats_0"]=1
+    operations["getWorkspaceWorkflowVersion_0"]=1
+    operations["getWorkspaceWorkflow_0"]=1
+    operations["listPartnerWorkflowPresets_1"]=1
+    operations["listWorkspaceWorkflowCompositionOptions_0"]=1
+    operations["listWorkspaceWorkflowPresets_0"]=1
+    operations["listWorkspaceWorkflowVersions_0"]=1
+    operations["listWorkspaceWorkflows_0"]=1
+    operations["pauseWorkspaceWorkflow_0"]=1
+    operations["publishWorkspaceWorkflow_0"]=1
+    operations["removePartnerWorkflowPreset_1"]=1
+    operations["restoreWorkspaceWorkflowVersion_0"]=1
+    operations["resumeWorkspaceWorkflow_0"]=1
+    operations["saveWorkspaceWorkflow_0"]=1
+    operations["setPartnerWorkflowPreset_1"]=1
+    operations["unarchiveWorkspaceWorkflow_0"]=1
+    operations["archiveWorkspaceWorkflow_1"]=1
+    operations["createWorkspaceWorkflowFromPreset_1"]=1
+    operations["createWorkspaceWorkflow_1"]=1
+    operations["deleteWorkspaceWorkflow_1"]=1
+    operations["discardWorkspaceWorkflowChanges_1"]=1
+    operations["duplicateWorkspaceWorkflow_1"]=1
+    operations["getWorkspaceWorkflowStats_1"]=1
+    operations["getWorkspaceWorkflowVersion_1"]=1
+    operations["getWorkspaceWorkflow_1"]=1
+    operations["listWorkspaceWorkflowCompositionOptions_1"]=1
+    operations["listWorkspaceWorkflowPresets_1"]=1
+    operations["listWorkspaceWorkflowVersions_1"]=1
+    operations["listWorkspaceWorkflows_1"]=1
+    operations["pauseWorkspaceWorkflow_1"]=1
+    operations["publishWorkspaceWorkflow_1"]=1
+    operations["restoreWorkspaceWorkflowVersion_1"]=1
+    operations["resumeWorkspaceWorkflow_1"]=1
+    operations["saveWorkspaceWorkflow_1"]=1
+    operations["unarchiveWorkspaceWorkflow_1"]=1
 
     # An associative array of operations to their parameters
     # Only include path, query and header parameters
     declare -A operation_parameters
+    operation_parameters["deleteBrandKitAsset_0"]="assetId= organizationId= "
+    operation_parameters["deleteBrandKit_0"]="organizationId= "
+    operation_parameters["getBrandKit_0"]="organizationId= "
+    operation_parameters["patchBrandKitAsset_0"]="assetId= organizationId= "
+    operation_parameters["patchBrandKit_0"]="organizationId= "
+    operation_parameters["postBrandKitFont_0"]="organizationId= "
+    operation_parameters["postBrandKitIcon_0"]="organizationId= "
+    operation_parameters["putBrandKit_0"]="organizationId= "
     operation_parameters["createCanvas_0"]=""
     operation_parameters["deleteCanvas_0"]="id= "
     operation_parameters["getAllCanvases_0"]="page= size= sort= createdAfter= createdBefore= updatedAfter= updatedBefore= managedUserId= managedUserExternalId= "
     operation_parameters["getCanvas_0"]="id= "
     operation_parameters["updateCanvas_0"]="id= "
     operation_parameters["addAiAnswersKnowledgeDocument_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["addAiAnswersKnowledgeFile_0"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["checkCompositionAccess_0"]="id= "
     operation_parameters["createCompositionContentItem_0"]="id= list= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["createCompositionDatabaseRecord_0"]="id= table= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
@@ -371,7 +476,7 @@ _client.sh()
     operation_parameters["setDynamicContent_0"]="id= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["updateCompositionDatabaseRecord_0"]="id= table= recordId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["updateCompositionStatus_0"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
-    operation_parameters["updateComposition_0"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["updateComposition_0"]="id= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["validateCompositionContent_0"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["getUserCreditBalance_0"]="userId= "
     operation_parameters["getUserCreditTransactions_0"]="userId= transactionType= limit= offset= "
@@ -397,9 +502,13 @@ _client.sh()
     operation_parameters["updateManagedUser_0"]="id= Idempotency-Key: "
     operation_parameters["operationsIdGet_0"]="id= "
     operation_parameters["addAiAnswersKnowledgeDocument"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["addAiAnswersKnowledgeFile"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["addPersonalWorkspaceDomain"]="id= "
+    operation_parameters["archiveWorkspaceWorkflow"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["callPublicCompositionAdapter"]="compositionId= adapterId= operation= "
     operation_parameters["checkCompositionAccess"]="id= "
+    operation_parameters["confirmPartnerAdapterConnection"]="partnerId= adapterId= credentialKey= "
+    operation_parameters["confirmUserAdapterConnection"]="userId= adapterId= credentialKey= "
     operation_parameters["copyPresetForManagedUser"]="id= key= Idempotency-Key: "
     operation_parameters["createCanvas"]=""
     operation_parameters["createComposition"]="Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
@@ -410,9 +519,13 @@ _client.sh()
     operation_parameters["createManagedUser"]="Idempotency-Key: "
     operation_parameters["createManagedUserEditorSession"]="id= "
     operation_parameters["createPartnerExtraCreditsInvoice"]="partnerId= Idempotency-Key: "
-    operation_parameters["createPublicCompositionEntry"]="compositionId= table= X-Widgetic-Write-Token: "
+    operation_parameters["createPublicCompositionEntry"]="compositionId= table= X-Widgetic-Write-Token: X-Widgetic-Visitor-Id: "
     operation_parameters["createUserApiKey"]="id= Idempotency-Key: "
     operation_parameters["createWidget"]="Idempotency-Key: "
+    operation_parameters["createWorkspaceWorkflow"]="workspaceId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["createWorkspaceWorkflowFromPreset"]="workspaceId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["deleteBrandKit"]="organizationId= "
+    operation_parameters["deleteBrandKitAsset"]="assetId= organizationId= "
     operation_parameters["deleteCanvas"]="id= "
     operation_parameters["deleteComposition"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["deleteCompositionContentItem"]="id= list= itemId= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
@@ -422,13 +535,17 @@ _client.sh()
     operation_parameters["deleteManagedUser"]="id= "
     operation_parameters["deletePersonalWorkspaceDomain"]="id= domainId= "
     operation_parameters["deleteUserApiKey"]="id= keyId= "
+    operation_parameters["deleteWorkspaceWorkflow"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["describeCompositionEntries"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["discardWorkspaceWorkflowChanges"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["duplicateComposition"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["duplicateWorkspaceWorkflow"]="workspaceId= workflowId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["exportCompositionEntryItems"]="id= table= format= order= since= until= context= filter= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["getAiAnswersKnowledge"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["getAllCanvases"]="page= size= sort= createdAfter= createdBefore= updatedAfter= updatedBefore= managedUserId= managedUserExternalId= "
     operation_parameters["getAllCompositions"]="page= size= sort= widgetId= workspace= projectFolder= status= managedUserId= managedUserExternalId= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["getAllManagedUsers"]="page= size= sort= "
+    operation_parameters["getBrandKit"]="organizationId= "
     operation_parameters["getCanvas"]="id= "
     operation_parameters["getCompositionById"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["getCompositionContent"]="id= X-Managed-User-Id: X-Managed-User-External-Id: "
@@ -471,6 +588,9 @@ _client.sh()
     operation_parameters["getPersonalWorkspaceDomains"]="id= "
     operation_parameters["getPublicCompositionEmbed"]="compositionId= "
     operation_parameters["getPublicCompositionIframe"]="compositionId= "
+    operation_parameters["getPublicWorkflow"]="workflowId= "
+    operation_parameters["getPublicWorkflowFrame"]="workflowId= "
+    operation_parameters["getPublicWorkflowVersion"]="workflowId= versionId= "
     operation_parameters["getUserAdapterConnections"]="userId= "
     operation_parameters["getUserApiKeyUsageLogs"]="id= keyId= limit= "
     operation_parameters["getUserApiKeys"]="id= "
@@ -478,26 +598,46 @@ _client.sh()
     operation_parameters["getUserCreditTransactions"]="userId= transactionType= limit= offset= "
     operation_parameters["getWidgets"]="page= size= canvasId= managedUserId= managedUserExternalId= "
     operation_parameters["getWidgetsBatch"]=""
+    operation_parameters["getWorkspaceWorkflow"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getWorkspaceWorkflowStats"]="workspaceId= workflowId= versionId= from= to= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getWorkspaceWorkflowVersion"]="workspaceId= workflowId= versionId= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["listCompositionEntryItems"]="id= table= limit= order= since= until= cursor= context= filter= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["listManagedUserEntries"]="id= compositionId= table= limit= order= since= until= cursor= context= filter= "
     operation_parameters["listPartnerNotificationDeliveries"]="partnerId= limit= "
     operation_parameters["listPartnerNotifications"]="partnerId= limit= before= "
     operation_parameters["listPartnerPresets"]="partnerId= "
+    operation_parameters["listPartnerWorkflowPresets"]="partnerId= "
+    operation_parameters["listWorkspaceWorkflowCompositionOptions"]="workspaceId= search= ids= limit= offset= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["listWorkspaceWorkflowPresets"]="workspaceId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["listWorkspaceWorkflowVersions"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["listWorkspaceWorkflows"]="workspaceId= search= status= sort= limit= offset= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["operationsIdGet"]="id= "
+    operation_parameters["patchBrandKit"]="organizationId= "
+    operation_parameters["patchBrandKitAsset"]="assetId= organizationId= "
     operation_parameters["patchCompositionContentItem"]="id= list= itemId= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["pauseWorkspaceWorkflow"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["postBrandKitFont"]="organizationId= "
+    operation_parameters["postBrandKitIcon"]="organizationId= "
     operation_parameters["postPublicCompositionEmbedStatus"]=""
+    operation_parameters["publishWorkspaceWorkflow"]="workspaceId= workflowId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["putBrandKit"]="organizationId= "
     operation_parameters["readCompositionEntries"]="id= table= groupBy= rows= aggregate= column= since= until= context= filter= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["removeAiAnswersKnowledgeDocument"]="id= documentId= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["removePartnerAdapterConnection"]="partnerId= adapterId= credentialKey= "
     operation_parameters["removePartnerDataDatabase"]="partnerId= "
     operation_parameters["removePartnerPreset"]="partnerId= key= "
     operation_parameters["removePartnerStorageDestination"]="partnerId= "
+    operation_parameters["removePartnerWorkflowPreset"]="partnerId= key= "
     operation_parameters["removeUserAdapterConnection"]="userId= adapterId= credentialKey= "
     operation_parameters["replayPartnerNotificationDelivery"]="partnerId= deliveryId= Idempotency-Key: "
+    operation_parameters["reportPublicWorkflowEvents"]="workflowId= "
+    operation_parameters["restoreWorkspaceWorkflowVersion"]="workspaceId= workflowId= versionId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["resumeWorkspaceWorkflow"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["revokeManagedUserEditorSession"]="id= sessionId= "
     operation_parameters["revokeManagedUserEditorSessions"]="id= "
     operation_parameters["rotatePartnerEntryContextSecret"]="partnerId= Idempotency-Key: "
     operation_parameters["rotatePartnerWebhookSecret"]="partnerId= Idempotency-Key: "
+    operation_parameters["saveWorkspaceWorkflow"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["sendPartnerNotificationTestEvent"]="partnerId= Idempotency-Key: "
     operation_parameters["setCompositionDataSource"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["setDynamicContent"]="id= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
@@ -508,9 +648,11 @@ _client.sh()
     operation_parameters["setPartnerDesignDefaults"]="partnerId= "
     operation_parameters["setPartnerPreset"]="partnerId= key= "
     operation_parameters["setPartnerStorageDestination"]="partnerId= "
+    operation_parameters["setPartnerWorkflowPreset"]="partnerId= key= "
     operation_parameters["setUserAdapterConnection"]="userId= adapterId= credentialKey= "
+    operation_parameters["unarchiveWorkspaceWorkflow"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["updateCanvas"]="id= "
-    operation_parameters["updateComposition"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["updateComposition"]="id= If-Match: Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["updateCompositionDatabaseRecord"]="id= table= recordId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["updateCompositionStatus"]="id= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
     operation_parameters["updateManagedUser"]="id= Idempotency-Key: "
@@ -528,6 +670,7 @@ _client.sh()
     operation_parameters["validateToken"]=""
     operation_parameters["verifyPartnerDataDatabase"]="partnerId= "
     operation_parameters["verifyPartnerStorageDestination"]="partnerId= "
+    operation_parameters["confirmPartnerAdapterConnection_0"]="partnerId= adapterId= credentialKey= "
     operation_parameters["createPartnerExtraCreditsInvoice_0"]="partnerId= Idempotency-Key: "
     operation_parameters["getMyPartners_0"]=""
     operation_parameters["getPartnerAdapterConnections_0"]="partnerId= "
@@ -548,10 +691,12 @@ _client.sh()
     operation_parameters["listPartnerNotificationDeliveries_0"]="partnerId= limit= "
     operation_parameters["listPartnerNotifications_0"]="partnerId= limit= before= "
     operation_parameters["listPartnerPresets_0"]="partnerId= "
+    operation_parameters["listPartnerWorkflowPresets_0"]="partnerId= "
     operation_parameters["removePartnerAdapterConnection_0"]="partnerId= adapterId= credentialKey= "
     operation_parameters["removePartnerDataDatabase_0"]="partnerId= "
     operation_parameters["removePartnerPreset_0"]="partnerId= key= "
     operation_parameters["removePartnerStorageDestination_0"]="partnerId= "
+    operation_parameters["removePartnerWorkflowPreset_0"]="partnerId= key= "
     operation_parameters["replayPartnerNotificationDelivery_0"]="partnerId= deliveryId= Idempotency-Key: "
     operation_parameters["rotatePartnerEntryContextSecret_0"]="partnerId= Idempotency-Key: "
     operation_parameters["rotatePartnerWebhookSecret_0"]="partnerId= Idempotency-Key: "
@@ -561,15 +706,20 @@ _client.sh()
     operation_parameters["setPartnerDesignDefaults_0"]="partnerId= "
     operation_parameters["setPartnerPreset_0"]="partnerId= key= "
     operation_parameters["setPartnerStorageDestination_0"]="partnerId= "
+    operation_parameters["setPartnerWorkflowPreset_0"]="partnerId= key= "
     operation_parameters["updatePartnerEntryContextSigning_0"]="partnerId= Idempotency-Key: "
     operation_parameters["updatePartnerNotificationSettings_0"]="partnerId= Idempotency-Key: "
     operation_parameters["verifyPartnerDataDatabase_0"]="partnerId= "
     operation_parameters["verifyPartnerStorageDestination_0"]="partnerId= "
     operation_parameters["callPublicCompositionAdapter_0"]="compositionId= adapterId= operation= "
-    operation_parameters["createPublicCompositionEntry_0"]="compositionId= table= X-Widgetic-Write-Token: "
+    operation_parameters["createPublicCompositionEntry_0"]="compositionId= table= X-Widgetic-Write-Token: X-Widgetic-Visitor-Id: "
     operation_parameters["getPublicCompositionEmbed_0"]="compositionId= "
     operation_parameters["getPublicCompositionIframe_0"]="compositionId= "
+    operation_parameters["getPublicWorkflowFrame_0"]="workflowId= "
+    operation_parameters["getPublicWorkflowVersion_0"]="workflowId= versionId= "
+    operation_parameters["getPublicWorkflow_0"]="workflowId= "
     operation_parameters["postPublicCompositionEmbedStatus_0"]=""
+    operation_parameters["reportPublicWorkflowEvents_0"]="workflowId= "
     operation_parameters["uploadPublicCompositionAdapterFile_0"]="compositionId= ticket= "
     operation_parameters["validateToken_0"]=""
     operation_parameters["uploadsGet_0"]="limit= managedUserId= managedUserExternalId= "
@@ -578,6 +728,7 @@ _client.sh()
     operation_parameters["uploadsLimitsGet_0"]=""
     operation_parameters["uploadsPost_0"]=""
     operation_parameters["addPersonalWorkspaceDomain_0"]="id= "
+    operation_parameters["confirmUserAdapterConnection_0"]="userId= adapterId= credentialKey= "
     operation_parameters["createUserApiKey_0"]="id= Idempotency-Key: "
     operation_parameters["deletePersonalWorkspaceDomain_0"]="id= domainId= "
     operation_parameters["deleteUserApiKey_0"]="id= keyId= "
@@ -593,6 +744,47 @@ _client.sh()
     operation_parameters["createWidget_0"]="Idempotency-Key: "
     operation_parameters["getWidgetsBatch_0"]=""
     operation_parameters["getWidgets_0"]="page= size= canvasId= managedUserId= managedUserExternalId= "
+    operation_parameters["archiveWorkspaceWorkflow_0"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["createWorkspaceWorkflowFromPreset_0"]="workspaceId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["createWorkspaceWorkflow_0"]="workspaceId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["deleteWorkspaceWorkflow_0"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["discardWorkspaceWorkflowChanges_0"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["duplicateWorkspaceWorkflow_0"]="workspaceId= workflowId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getWorkspaceWorkflowStats_0"]="workspaceId= workflowId= versionId= from= to= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getWorkspaceWorkflowVersion_0"]="workspaceId= workflowId= versionId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getWorkspaceWorkflow_0"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["listPartnerWorkflowPresets_1"]="partnerId= "
+    operation_parameters["listWorkspaceWorkflowCompositionOptions_0"]="workspaceId= search= ids= limit= offset= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["listWorkspaceWorkflowPresets_0"]="workspaceId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["listWorkspaceWorkflowVersions_0"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["listWorkspaceWorkflows_0"]="workspaceId= search= status= sort= limit= offset= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["pauseWorkspaceWorkflow_0"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["publishWorkspaceWorkflow_0"]="workspaceId= workflowId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["removePartnerWorkflowPreset_1"]="partnerId= key= "
+    operation_parameters["restoreWorkspaceWorkflowVersion_0"]="workspaceId= workflowId= versionId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["resumeWorkspaceWorkflow_0"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["saveWorkspaceWorkflow_0"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["setPartnerWorkflowPreset_1"]="partnerId= key= "
+    operation_parameters["unarchiveWorkspaceWorkflow_0"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["archiveWorkspaceWorkflow_1"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["createWorkspaceWorkflowFromPreset_1"]="workspaceId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["createWorkspaceWorkflow_1"]="workspaceId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["deleteWorkspaceWorkflow_1"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["discardWorkspaceWorkflowChanges_1"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["duplicateWorkspaceWorkflow_1"]="workspaceId= workflowId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getWorkspaceWorkflowStats_1"]="workspaceId= workflowId= versionId= from= to= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getWorkspaceWorkflowVersion_1"]="workspaceId= workflowId= versionId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["getWorkspaceWorkflow_1"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["listWorkspaceWorkflowCompositionOptions_1"]="workspaceId= search= ids= limit= offset= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["listWorkspaceWorkflowPresets_1"]="workspaceId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["listWorkspaceWorkflowVersions_1"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["listWorkspaceWorkflows_1"]="workspaceId= search= status= sort= limit= offset= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["pauseWorkspaceWorkflow_1"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["publishWorkspaceWorkflow_1"]="workspaceId= workflowId= Idempotency-Key: X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["restoreWorkspaceWorkflowVersion_1"]="workspaceId= workflowId= versionId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["resumeWorkspaceWorkflow_1"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["saveWorkspaceWorkflow_1"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
+    operation_parameters["unarchiveWorkspaceWorkflow_1"]="workspaceId= workflowId= X-Managed-User-Id: X-Managed-User-External-Id: "
 
     # An associative array of possible values for enum parameters
     declare -A operation_parameters_enum_values
